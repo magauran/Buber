@@ -13,6 +13,8 @@
 		88A9CD4A237F517400260FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A9CD48237F517400260FDE /* Main.storyboard */; };
 		88A9CD4C237F517600260FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A9CD4B237F517600260FDE /* Assets.xcassets */; };
 		88A9CD4F237F517600260FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */; };
+		88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD56237F520500260FDE /* MovingAnnotation.swift */; };
+		88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		88A9CD4B237F517600260FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88A9CD4E237F517600260FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88A9CD50237F517600260FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88A9CD56237F520500260FDE /* MovingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAnnotation.swift; sourceTree = "<group>"; };
+		88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				88A9CD42237F517400260FDE /* AppDelegate.swift */,
 				88A9CD44237F517400260FDE /* SceneDelegate.swift */,
 				88A9CD46237F517400260FDE /* ViewController.swift */,
+				88A9CD56237F520500260FDE /* MovingAnnotation.swift */,
+				88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */,
 				88A9CD48237F517400260FDE /* Main.storyboard */,
 				88A9CD4B237F517600260FDE /* Assets.xcassets */,
 				88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */,
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
+				88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */,
 				88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */,
 				88A9CD45237F517400260FDE /* SceneDelegate.swift in Sources */,
 			);
