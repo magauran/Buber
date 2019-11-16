@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     private let fpc = FloatingPanelController()
     private let searchViewController = SearchViewController()
     private lazy var userTraсkingButton = UIButton()
+    private var userCoordinate: CLLocationCoordinate2D?
 
     private let myAnnotation = BusAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
@@ -123,6 +124,7 @@ final class ViewController: UIViewController {
             return nil
         }
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.userCoordinate = coordinate
         return coordinate
     }
 
@@ -139,6 +141,43 @@ final class ViewController: UIViewController {
     private func didTapUserTrackingButton() {
         guard let userCoordinate = self.getUserCoordinate() else { return }
         self.mapView.setCenter(userCoordinate, animated: true)
+    }
+
+    private func showRoute(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
+        let sourcePlacemark = MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
+
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+
+        let directions = MKDirections(request: directionRequest)
+
+        directions.calculate {
+            (response, error) -> Void in
+
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+
+                return
+            }
+
+            let route = response.routes[0]
+
+            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+        }
+    }
+
+    private func removeAllRoutes() {
+        self.mapView.overlays.filter { $0 is MKPolyline }.forEach { overlay in
+            self.mapView.removeOverlay(overlay)
+        }
     }
 }
 
@@ -171,6 +210,22 @@ extension ViewController: MKMapViewDelegate {
         default:
             return nil
         }
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard view is BusStopAnnotationView else { return }
+        guard let destinationCoordinate = view.annotation?.coordinate else { return }
+        guard let pickupCoordinate = self.userCoordinate else { return }
+
+        self.removeAllRoutes()
+        self.showRoute(pickupCoordinate: pickupCoordinate, destinationCoordinate: destinationCoordinate)
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = .yellow
+        renderer.lineWidth = 5.0
+        return renderer
     }
 }
 
