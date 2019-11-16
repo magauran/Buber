@@ -106,6 +106,8 @@ final class ViewController: UIViewController {
         self.fpc.surfaceView.backgroundColor = .clear
         self.fpc.surfaceView.cornerRadius = 16
         self.fpc.surfaceView.shadowHidden = false
+        self.fpc.surfaceView.grabberHandle.barColor = .black
+        self.fpc.surfaceView.grabberTopPadding = 20
     }
 
     private func setupUserTrackingButton() {
@@ -258,7 +260,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
             case .full: return 16.0
             case .half:
                 return 380
-            case .tip: return 50
+            case .tip: return 70
             default: return nil
         }
     }

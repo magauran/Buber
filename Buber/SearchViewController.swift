@@ -33,7 +33,7 @@ final class SearchViewController: UIViewController {
         self.view.addSubview(self.searchButton)
 
         self.whereToSearchField.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(32)
             make.left.equalToSuperview().offset(16)
         }
 
