@@ -108,7 +108,7 @@ final class ViewController: UIViewController {
         self.fpc.surfaceView.backgroundColor = .clear
         self.fpc.surfaceView.cornerRadius = 16
         self.fpc.surfaceView.shadowHidden = false
-        self.fpc.surfaceView.grabberHandle.barColor = .black
+        self.fpc.surfaceView.grabberHandle.barColor = .app
         self.fpc.surfaceView.grabberTopPadding = 20
     }
 
