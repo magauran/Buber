@@ -11,12 +11,9 @@ import MapKit
 import FloatingPanel
 import Keyboardy
 
-var keyboardHeight: CGFloat = 0
-
 final class ViewController: UIViewController {
     private let mapView = MKMapView()
     private let fpc = FloatingPanelController()
-//    private var keyboardHeight: CGFloat = 0
 
     private let myAnnotation = MovingAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
@@ -51,20 +48,19 @@ final class ViewController: UIViewController {
         myAnnotation.coordinate = startPosition
         mapView.addAnnotation(myAnnotation)
 
+
+        self.setupFPC()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
+        self.registerForKeyboardNotifications(self)
+    }
 
-           self.registerForKeyboardNotifications(self)
-       }
-
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-
-           self.unregisterFromKeyboardNotifications()
-       }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unregisterFromKeyboardNotifications()
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -75,6 +71,12 @@ final class ViewController: UIViewController {
         self.fpc.set(contentViewController: search)
         self.fpc.delegate = self
         self.present(self.fpc, animated: true, completion: nil)
+    }
+
+    private func setupFPC() {
+        self.fpc.surfaceView.backgroundColor = .clear
+        self.fpc.surfaceView.cornerRadius = 16
+        self.fpc.surfaceView.shadowHidden = false
     }
 }
 
@@ -188,7 +190,7 @@ extension ViewController: KeyboardStateDelegate {
 
     func keyboardTransitionAnimation(_ state: KeyboardState) {
         switch state {
-        case .activeWithHeight(let height):
+        case .activeWithHeight:
             self.fpc.move(to: .half, animated: true)
         case .hidden:
             self.fpc.move(to: .tip, animated: true)
