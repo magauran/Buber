@@ -73,7 +73,7 @@ final class ViewController: UIViewController {
     }
 
     private func setupMapView() {
-        let startPosition = CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8249)
+        guard let startPosition = self.getUserCoordinate() else { return }
 
         let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 1000, longitudinalMeters: 1000)
         self.mapView.setRegion(region, animated: true)
@@ -141,7 +141,11 @@ final class ViewController: UIViewController {
 
     @objc
     private func didTapUserTrackingButton() {
-        self.setCenterForTipState()
+        if self.fpc.position == .tip {
+            self.setCenterForTipState()
+        } else if self.fpc.position == .half {
+            self.setCenterForHalfState()
+        }
     }
 
     private func setCenterForTipState() {
