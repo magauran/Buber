@@ -58,7 +58,7 @@ final class OrderViewController: UIViewController {
 
     private func setupInfoView() {
         let busInfoView = BusInfoView()
-        let routeInfoView = UIView()
+        let routeInfoView = RouteInfoView()
 
         self.infoView.addSubview(busInfoView)
         self.infoView.addSubview(routeInfoView)
