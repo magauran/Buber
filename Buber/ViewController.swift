@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
     private let fpc = FloatingPanelController()
     private let searchViewController = SearchViewController()
 
-    private let myAnnotation = MovingAnnotation(route: [
+    private let myAnnotation = BusAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
         CLLocationCoordinate2D(latitude: 53.2369, longitude: -6.3633),
         CLLocationCoordinate2D(latitude: 53.1369, longitude: -6.4633),
@@ -128,7 +128,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         switch annotation {
         case is MKUserLocation: return nil
-        case is MovingAnnotation:
+        case is BusAnnotation:
             let identifier = "Pin"
             var annotationView: BusAnnotationView?
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusAnnotationView {
