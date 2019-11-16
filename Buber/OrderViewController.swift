@@ -36,10 +36,9 @@ final class OrderViewController: UIViewController {
 
         self.view.addSubview(self.contentStackView)
         self.contentStackView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(20)
+            make.top.equalTo(self.view.snp.top).offset(55)
             make.left.equalTo(self.view.snp.left).offset(24)
             make.right.equalTo(self.view.snp.right).offset(-24)
-            make.height.equalTo(400 - 20 - 20)
         }
 
         self.setupSubviews()

@@ -33,16 +33,29 @@ final class BusInfoView: UIView {
         let numberLabel = UILabel()
         numberLabel.font = UIFont.boldSystemFont(ofSize: 21)
         numberLabel.text = "NO. 550"
+        numberLabel.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
 
         let modelLabel = UILabel()
         modelLabel.font = UIFont.boldSystemFont(ofSize: 16)
         modelLabel.text = "Itäkeskus"
+        modelLabel.snp.makeConstraints { make in
+            make.height.equalTo(19)
+        }
 
         let busView = UIStackView()
         busView.axis = .horizontal
         busView.spacing = 8
 
+        busView.snp.makeConstraints { make in
+            make.height.equalTo(39)
+        }
+
         let busImageView = UIImageView(image: UIImage(named: "itakeskus"))
+        busImageView.snp.makeConstraints { make in
+            make.width.equalTo(70)
+        }
 
         busView.addArrangedSubview(busImageView)
 
@@ -55,20 +68,38 @@ final class BusInfoView: UIView {
         durationLabel.text = "4 mins"
 
         let busDataView = UIStackView(arrangedSubviews: [costLabel, durationLabel])
+        busDataView.axis = .vertical
+        busDataView.distribution = .fillEqually
         busView.addArrangedSubview(busDataView)
 
         let driverLabel = UILabel()
         driverLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         driverLabel.text = "Driver"
+        driverLabel.snp.makeConstraints { make in
+            make.height.equalTo(19)
+        }
 
         let driverNameLabel = UILabel()
         driverNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         driverNameLabel.text = "Jacob M."
+        driverNameLabel.snp.makeConstraints { make in
+            make.height.equalTo(21)
+        }
+
+        let busViewWrapper = UIView()
+        busViewWrapper.addSubview(busView)
+        busView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 18, left: 0, bottom: 12, right: 0))
+        }
 
         self.contentStackView.addArrangedSubview(numberLabel)
         self.contentStackView.addArrangedSubview(modelLabel)
-        self.contentStackView.addArrangedSubview(busView)
+        self.contentStackView.addArrangedSubview(busViewWrapper)
         self.contentStackView.addArrangedSubview(driverLabel)
         self.contentStackView.addArrangedSubview(driverNameLabel)
+
+        self.snp.makeConstraints { make in
+            make.height.equalTo(185)
+        }
     }
 }
