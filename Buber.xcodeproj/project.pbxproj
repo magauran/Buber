@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88A5A4FE237F8ADE003D8928 /* BusAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */; };
 		88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD42237F517400260FDE /* AppDelegate.swift */; };
 		88A9CD45237F517400260FDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD44237F517400260FDE /* SceneDelegate.swift */; };
 		88A9CD47237F517400260FDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD46237F517400260FDE /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0DCCCD4B82F147CD02E787B6 /* Pods-Buber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.debug.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.debug.xcconfig"; sourceTree = "<group>"; };
 		0DDF0831402C3F1421FE91D3 /* Pods-Buber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.release.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.release.xcconfig"; sourceTree = "<group>"; };
+		88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnnotationView.swift; sourceTree = "<group>"; };
 		88A9CD3F237F517400260FDE /* Buber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A9CD42237F517400260FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88A9CD44237F517400260FDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				88A9CD46237F517400260FDE /* ViewController.swift */,
 				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
 				88A9CD56237F520500260FDE /* MovingAnnotation.swift */,
+				88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */,
 				88EDB20C237F888C0027213F /* UserAnnotationView.swift */,
 				88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */,
 				88A9CD48237F517400260FDE /* Main.storyboard */,
@@ -231,6 +234,7 @@
 			files = (
 				88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */,
 				88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */,
+				88A5A4FE237F8ADE003D8928 /* BusAnnotationView.swift in Sources */,
 				88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
 				88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */,

@@ -96,16 +96,13 @@ extension ViewController: MKMapViewDelegate {
         case is MKUserLocation: return nil
         case is MovingAnnotation:
             let identifier = "Pin"
-            var annotationView: MKAnnotationView?
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+            var annotationView: BusAnnotationView?
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusAnnotationView {
                 dequeuedView.annotation = annotation
                 annotationView = dequeuedView
             } else {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                let image = UIImage(named: "bus")?.resize(targetSize: CGSize(width: 40, height: 40))
-                annotationView?.image = image?.tint(color: .systemRed)
+                annotationView = BusAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
-
             return annotationView
         default:
             return UserAnnotationView(annotation: annotation, reuseIdentifier: "User")
