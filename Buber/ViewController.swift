@@ -16,6 +16,7 @@ final class ViewController: UIViewController {
     private let mapView = MKMapView()
     private let fpc = FloatingPanelController()
     private let searchViewController = SearchViewController()
+    private lazy var userTraсkingButton = UIButton()
 
     private let myAnnotation = BusAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
@@ -34,16 +35,22 @@ final class ViewController: UIViewController {
 
         self.mapView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.mapView)
-        NSLayoutConstraint.activate([
-            self.mapView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.mapView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.mapView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-        ])
+        self.mapView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        self.view.addSubview(self.userTraсkingButton)
+        self.userTraсkingButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(80)
+            make.right.equalToSuperview().offset(-16)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
 
         self.setupMapView()
         self.setupSearchVC()
         self.setupFPC()
+        self.setupUserTrackingButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +107,11 @@ final class ViewController: UIViewController {
         self.fpc.surfaceView.shadowHidden = false
     }
 
+    private func setupUserTrackingButton() {
+        self.userTraсkingButton.backgroundColor = .red
+        self.userTraсkingButton.addTarget(self, action: #selector(self.didTapUserTrackingButton), for: .touchUpInside)
+    }
+
     private func getUserCoordinate() -> CLLocationCoordinate2D? {
         let data = NSDataAsset(name: "UserLocation")!.data
         let parser = GPXParser(withData: data)
@@ -121,6 +133,12 @@ final class ViewController: UIViewController {
             CLLocationCoordinate2D(latitude: 52.8, longitude: -6.0),
             CLLocationCoordinate2D(latitude: 52.6, longitude: -6.3),
         ]
+    }
+
+    @objc
+    private func didTapUserTrackingButton() {
+        guard let userCoordinate = self.getUserCoordinate() else { return }
+        self.mapView.setCenter(userCoordinate, animated: true)
     }
 }
 
