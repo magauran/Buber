@@ -34,19 +34,29 @@ final class BottomContainerViewController: UIViewController {
     }
 
     private func updateView() {
-        switch self.state {
-        case .search:
-            self.orderViewController.view.removeFromSuperview()
-            self.view.addSubview(self.searchViewController.view)
-            self.searchViewController.view.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
-        case .order:
-            self.searchViewController.view.removeFromSuperview()
-            self.view.addSubview(self.orderViewController.view)
-            self.orderViewController.view.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
+        let animations = {
+            switch self.state {
+            case .search:
+                self.orderViewController.view.removeFromSuperview()
+                self.view.addSubview(self.searchViewController.view)
+                self.searchViewController.view.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
+            case .order:
+                self.searchViewController.view.removeFromSuperview()
+                self.view.addSubview(self.orderViewController.view)
+                self.orderViewController.view.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
             }
         }
+
+        UIView.transition(
+            with: self.view,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: animations,
+            completion: nil
+        )
     }
 }
