@@ -9,7 +9,13 @@
 import UIKit
 import SnapKit
 
+protocol OrderViewControllerDelegate: AnyObject {
+    func orderViewControllerDidTapOrderButton(_ vc: OrderViewController)
+}
+
 final class OrderViewController: UIViewController {
+    weak var delegate: OrderViewControllerDelegate?
+
     private let contentStackView = UIStackView()
 
     private let infoView = UIView()
@@ -54,6 +60,8 @@ final class OrderViewController: UIViewController {
         self.contentStackView.addArrangedSubview(self.orderButton)
 
         self.setupInfoView()
+
+        self.orderButton.addTarget(self, action: #selector(self.didTapOrderButton), for: .touchUpInside)
     }
 
     private func setupInfoView() {
@@ -72,6 +80,11 @@ final class OrderViewController: UIViewController {
             make.left.equalTo(busInfoView.snp.right)
             make.width.equalTo(busInfoView)
         }
+    }
+
+    @objc
+    private func didTapOrderButton() {
+        self.delegate?.orderViewControllerDidTapOrderButton(self)
     }
 
     private static func makeSeparatorView() -> UIView {

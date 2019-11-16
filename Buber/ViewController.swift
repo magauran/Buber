@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     private let bottomContainerController = BottomContainerViewController()
     private lazy var userTraсkingButton = UIButton()
     private var userCoordinate: CLLocationCoordinate2D?
+    private var coveringWindow: UIWindow?
 
     private lazy var myAnnotation = BusAnnotation(
         route: self.getBusRoute()
@@ -25,6 +26,8 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.definesPresentationContext = true
 
         self.mapView.delegate = self
 
@@ -44,6 +47,7 @@ final class ViewController: UIViewController {
 
         self.setupMapView()
         self.setupSearchVC()
+        self.setupOrderVC()
         self.setupFPC()
         self.setupUserTrackingButton()
     }
@@ -94,6 +98,10 @@ final class ViewController: UIViewController {
 
     private func setupSearchVC() {
         self.bottomContainerController.searchViewController.delegate = self
+    }
+
+    private func setupOrderVC() {
+        self.bottomContainerController.orderViewController.delegate = self
     }
 
     private func setupFPC() {
@@ -318,6 +326,21 @@ extension ViewController: SearchViewControllerDelegate {
         self.bottomContainerController.state = .order
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.fpc.move(to: .half, animated: true)
+        }
+    }
+}
+
+extension ViewController: OrderViewControllerDelegate {
+    func orderViewControllerDidTapOrderButton(_ vc: OrderViewController) {
+        let confirmVC = ConfirmViewController()
+
+        self.coveringWindow = UIWindow(frame: self.view.bounds)
+
+        if let coveringWindow = self.coveringWindow {
+            coveringWindow.windowLevel = .statusBar
+            coveringWindow.isHidden = false
+            coveringWindow.rootViewController = confirmVC
+            coveringWindow.makeKeyAndVisible()
         }
     }
 }
