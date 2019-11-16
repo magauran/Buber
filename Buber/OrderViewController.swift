@@ -89,7 +89,7 @@ final class OrderViewController: UIViewController {
 
     private static func makeSeparatorView() -> UIView {
         let separator = UIView()
-        separator.backgroundColor = .lightGray
+        separator.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
         separator.snp.makeConstraints { make in
             make.height.equalTo(1)
         }
