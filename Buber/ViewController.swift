@@ -14,6 +14,7 @@ import Keyboardy
 final class ViewController: UIViewController {
     private let mapView = MKMapView()
     private let fpc = FloatingPanelController()
+    private let searchViewController = SearchViewController()
 
     private let myAnnotation = MovingAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
@@ -49,6 +50,7 @@ final class ViewController: UIViewController {
         mapView.addAnnotation(myAnnotation)
 
 
+        self.setupSearchVC()
         self.setupFPC()
     }
 
@@ -67,10 +69,13 @@ final class ViewController: UIViewController {
 
         self.myAnnotation.start()
 
-        let search = SearchViewController()
-        self.fpc.set(contentViewController: search)
+        self.fpc.set(contentViewController: self.searchViewController)
         self.fpc.delegate = self
         self.present(self.fpc, animated: true, completion: nil)
+    }
+
+    private func setupSearchVC() {
+        self.searchViewController.delegate = self
     }
 
     private func setupFPC() {
@@ -177,7 +182,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
         switch position {
             case .full: return 16.0
             case .half:
-                return 500
+                return 380
             case .tip: return 50
             default: return nil
         }
@@ -200,5 +205,11 @@ extension ViewController: KeyboardStateDelegate {
 
     func keyboardDidTransition(_ state: KeyboardState) {
         // keyboard animation finished
+    }
+}
+
+extension ViewController: SearchViewControllerDelegate {
+    func searchViewController(vc: SearchViewController, searchText: String) {
+        self.fpc.move(to: .tip, animated: true)
     }
 }
