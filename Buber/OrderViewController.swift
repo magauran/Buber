@@ -14,7 +14,7 @@ final class OrderViewController: UIViewController {
 
     private let infoView = UIView()
     private let separatorView: UIView
-    private let paymentInfoView = UIView()
+    private let paymentInfoView = PaymentView()
     private let orderButton: UIButton
 
     init() {
@@ -47,6 +47,7 @@ final class OrderViewController: UIViewController {
 
     private func setupSubviews() {
         self.contentStackView.axis = .vertical
+        self.contentStackView.spacing = 24
 
         self.contentStackView.addArrangedSubview(self.infoView)
         self.contentStackView.addArrangedSubview(self.separatorView)
