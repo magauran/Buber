@@ -15,9 +15,13 @@
 		88A9CD4F237F517600260FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */; };
 		88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD56237F520500260FDE /* MovingAnnotation.swift */; };
 		88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */; };
+		88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD5A237F677100260FDE /* SearchViewController.swift */; };
+		9B0C3CAB113736F967273D55 /* Pods_Buber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1193258B064023FAB79AC17 /* Pods_Buber.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DCCCD4B82F147CD02E787B6 /* Pods-Buber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.debug.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.debug.xcconfig"; sourceTree = "<group>"; };
+		0DDF0831402C3F1421FE91D3 /* Pods-Buber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.release.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.release.xcconfig"; sourceTree = "<group>"; };
 		88A9CD3F237F517400260FDE /* Buber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A9CD42237F517400260FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88A9CD44237F517400260FDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		88A9CD50237F517600260FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A9CD56237F520500260FDE /* MovingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAnnotation.swift; sourceTree = "<group>"; };
 		88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D++.swift"; sourceTree = "<group>"; };
+		88A9CD5A237F677100260FDE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C1193258B064023FAB79AC17 /* Pods_Buber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0C3CAB113736F967273D55 /* Pods_Buber.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				88A9CD41237F517400260FDE /* Buber */,
 				88A9CD40237F517400260FDE /* Products */,
+				90967953265EB0710A310700 /* Pods */,
+				C8A6C7D982DE7F35F6755B14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +72,7 @@
 				88A9CD42237F517400260FDE /* AppDelegate.swift */,
 				88A9CD44237F517400260FDE /* SceneDelegate.swift */,
 				88A9CD46237F517400260FDE /* ViewController.swift */,
+				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
 				88A9CD56237F520500260FDE /* MovingAnnotation.swift */,
 				88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */,
 				88A9CD48237F517400260FDE /* Main.storyboard */,
@@ -73,6 +83,23 @@
 			path = Buber;
 			sourceTree = "<group>";
 		};
+		90967953265EB0710A310700 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DCCCD4B82F147CD02E787B6 /* Pods-Buber.debug.xcconfig */,
+				0DDF0831402C3F1421FE91D3 /* Pods-Buber.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8A6C7D982DE7F35F6755B14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1193258B064023FAB79AC17 /* Pods_Buber.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88A9CD53237F517600260FDE /* Build configuration list for PBXNativeTarget "Buber" */;
 			buildPhases = (
+				478FA9C692D24582B36A4FAC /* [CP] Check Pods Manifest.lock */,
 				88A9CD3B237F517400260FDE /* Sources */,
 				88A9CD3C237F517400260FDE /* Frameworks */,
 				88A9CD3D237F517400260FDE /* Resources */,
+				241E5E1F74EC49EB11F76004 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,11 +168,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		241E5E1F74EC49EB11F76004 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Buber/Pods-Buber-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
+				"${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keyboardy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Buber/Pods-Buber-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		478FA9C692D24582B36A4FAC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Buber-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88A9CD3B237F517400260FDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */,
 				88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
 				88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */,
@@ -290,6 +371,7 @@
 		};
 		88A9CD54237F517600260FDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DCCCD4B82F147CD02E787B6 /* Pods-Buber.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,12 +384,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.magauran.Buber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		88A9CD55237F517600260FDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DDF0831402C3F1421FE91D3 /* Pods-Buber.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,7 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.magauran.Buber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

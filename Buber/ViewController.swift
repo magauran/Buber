@@ -8,9 +8,16 @@
 
 import UIKit
 import MapKit
+import FloatingPanel
+import Keyboardy
 
-class ViewController: UIViewController {
-    let mapView = MKMapView()
+var keyboardHeight: CGFloat = 0
+
+final class ViewController: UIViewController {
+    private let mapView = MKMapView()
+    private let fpc = FloatingPanelController()
+//    private var keyboardHeight: CGFloat = 0
+
     private let myAnnotation = MovingAnnotation(route: [
         CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
         CLLocationCoordinate2D(latitude: 53.2369, longitude: -6.3633),
@@ -46,10 +53,28 @@ class ViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+
+           self.registerForKeyboardNotifications(self)
+       }
+
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+
+           self.unregisterFromKeyboardNotifications()
+       }
+
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.myAnnotation.start()
+
+        let search = SearchViewController()
+        self.fpc.set(contentViewController: search)
+        self.fpc.delegate = self
+        self.present(self.fpc, animated: true, completion: nil)
     }
 }
 
@@ -119,5 +144,59 @@ extension UIImage {
         } else {
             return nil
         }
+    }
+}
+
+// MARK: - FloatingPanelControllerDelegate
+extension ViewController: FloatingPanelControllerDelegate {
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
+        return MyFloatingPanelLayout()
+    }
+
+    func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
+        if self.fpc.position == .half {
+            self.fpc.view.endEditing(true)
+        }
+    }
+
+    func floatingPanelWillBeginDecelerating(_ vc: FloatingPanelController) {
+        if self.fpc.position == .half {
+            self.fpc.view.endEditing(true)
+        }
+    }
+}
+
+class MyFloatingPanelLayout: FloatingPanelLayout {
+    public var initialPosition: FloatingPanelPosition {
+        return .tip
+    }
+
+    public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        switch position {
+            case .full: return 16.0
+            case .half:
+                return 500
+            case .tip: return 50
+            default: return nil
+        }
+    }
+}
+
+extension ViewController: KeyboardStateDelegate {
+    func keyboardWillTransition(_ state: KeyboardState) {
+    }
+
+    func keyboardTransitionAnimation(_ state: KeyboardState) {
+        switch state {
+        case .activeWithHeight(let height):
+            self.fpc.move(to: .half, animated: true)
+        case .hidden:
+            self.fpc.move(to: .tip, animated: true)
+        }
+    }
+
+
+    func keyboardDidTransition(_ state: KeyboardState) {
+        // keyboard animation finished
     }
 }

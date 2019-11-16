@@ -33,7 +33,6 @@ class MovingAnnotation: NSObject, MKAnnotation {
             let nextCoordinate = self.route[(self.currentIndex + 1) % self.count]
             let distance = currentCoordinate.distance(to: nextCoordinate)
             let duration = distance / self.velocity
-            print(duration)
 
             UIView.animate(
                 withDuration: duration,
