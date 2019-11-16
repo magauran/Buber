@@ -52,7 +52,7 @@ final class SearchViewController: UIViewController {
         self.whereToSearchField.placeholder = "Where to?"
 
         self.searchButton.setTitle("Search", for: .normal)
-        self.searchButton.setTitleColor(.blue, for: .normal)
+        self.searchButton.setTitleColor(.app, for: .normal)
         self.searchButton.addTarget(self, action: #selector(self.didTapSearchButton), for: .touchUpInside)
     }
 
