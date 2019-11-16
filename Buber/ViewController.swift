@@ -86,14 +86,6 @@ final class ViewController: UIViewController {
             userAnnotation.coordinate = userCoordinate
             self.mapView.addAnnotation(userAnnotation)
         }
-
-        let busStopsCoordinates = self.getBusStopsCoordinates()
-        let busStopsAnnotations: [BusStopAnnotation] = busStopsCoordinates.map { coordinate in
-            let annotation = BusStopAnnotation()
-            annotation.coordinate = coordinate
-            return annotation
-        }
-        self.mapView.addAnnotations(busStopsAnnotations)
     }
 
     private func setupSearchVC() {
@@ -132,10 +124,8 @@ final class ViewController: UIViewController {
         return coordinate
     }
 
-    private func getBusStopsCoordinates() -> [CLLocationCoordinate2D] {
-        return [
-            CLLocationCoordinate2D(latitude: 60.1869, longitude: 24.8276),
-        ]
+    private func getBusStopCoordinate() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: 60.1869, longitude: 24.8276)
     }
 
     private func getBusRoute() -> [CLLocationCoordinate2D] {
@@ -248,7 +238,8 @@ extension ViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = .yellow
+        renderer.strokeColor = .black
+        renderer.lineDashPattern = [0, 8]
         renderer.lineWidth = 5.0
         return renderer
     }
@@ -323,6 +314,16 @@ extension ViewController: KeyboardStateDelegate {
 
 extension ViewController: SearchViewControllerDelegate {
     func searchViewController(vc: SearchViewController, searchText: String) {
+        let busStopCoordinate = self.getBusStopCoordinate()
+        let annotation = BusStopAnnotation()
+        annotation.coordinate = busStopCoordinate
+        self.mapView.addAnnotation(annotation)
+
+        guard let pickupCoordinate = self.userCoordinate else { return }
+
+        self.removeAllRoutes()
+        self.showRoute(pickupCoordinate: pickupCoordinate, destinationCoordinate: busStopCoordinate)
+
         self.bottomContainerController.state = .order
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.fpc.move(to: .half, animated: true)
