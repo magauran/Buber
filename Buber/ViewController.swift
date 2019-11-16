@@ -19,20 +19,9 @@ final class ViewController: UIViewController {
     private lazy var userTraсkingButton = UIButton()
     private var userCoordinate: CLLocationCoordinate2D?
 
-    private let myAnnotation = BusAnnotation(route: [
-        CLLocationCoordinate2D(latitude: 60.1875, longitude: 24.8234),
-        CLLocationCoordinate2D(latitude: 60.1865, longitude: 24.8224),
-        CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8213),
-        CLLocationCoordinate2D(latitude: 60.1845, longitude: 24.8206),
-        CLLocationCoordinate2D(latitude: 60.1835, longitude: 24.8204),
-        CLLocationCoordinate2D(latitude: 60.1845, longitude: 24.8226),
-        CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8229),
-        CLLocationCoordinate2D(latitude: 60.1865, longitude: 24.8232),
-        CLLocationCoordinate2D(latitude: 60.1875, longitude: 24.8242),
-        CLLocationCoordinate2D(latitude: 60.1885, longitude: 24.8252),
-        CLLocationCoordinate2D(latitude: 60.1895, longitude: 24.8262),
-        CLLocationCoordinate2D(latitude: 60.1885, longitude: 24.8242),
-    ])
+    private lazy var myAnnotation = BusAnnotation(
+        route: self.getBusRoute()
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +128,17 @@ final class ViewController: UIViewController {
         return [
             CLLocationCoordinate2D(latitude: 60.1869, longitude: 24.8276),
         ]
+    }
+
+    private func getBusRoute() -> [CLLocationCoordinate2D] {
+        let data = NSDataAsset(name: "some")!.data
+        let parser = GPXParser(withData: data)
+        guard let points = parser.parsedData()?.waypoints else { return [] }
+        let coordinates: [CLLocationCoordinate2D] = points.compactMap { point in
+            guard let latitude = point.latitude, let longitude = point.longitude else { return nil }
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+        return coordinates
     }
 
     @objc
