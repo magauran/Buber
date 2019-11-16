@@ -66,7 +66,7 @@ final class OrderViewController: UIViewController {
 
     private static func makeOrderButton() -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .app
+        button.setBackgroundImage(UIImage.imageWith(color: .app), for: .normal)
         button.layer.cornerRadius = 10
         button.setTitle("Order bus", for: .normal)
         button.snp.makeConstraints { make in
