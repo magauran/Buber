@@ -211,6 +211,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Buber/Pods-Buber-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CoreGPX/CoreGPX.framework",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
@@ -220,6 +221,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreGPX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keyboardy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",

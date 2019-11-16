@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import FloatingPanel
 import Keyboardy
+import CoreGPX
 
 final class ViewController: UIViewController {
     private let mapView = MKMapView()
@@ -74,9 +75,11 @@ final class ViewController: UIViewController {
         myAnnotation.coordinate = startPosition
         self.mapView.addAnnotation(myAnnotation)
 
-        let userAnnotation = MKPointAnnotation()
-        userAnnotation.coordinate = CLLocationCoordinate2D(latitude: 53.1, longitude: -6.26)
-        self.mapView.addAnnotation(userAnnotation)
+        if let userCoordinate = self.getUserCoordinate() {
+            let userAnnotation = MKPointAnnotation()
+            userAnnotation.coordinate = userCoordinate
+            self.mapView.addAnnotation(userAnnotation)
+        }
     }
 
     private func setupSearchVC() {
@@ -87,6 +90,20 @@ final class ViewController: UIViewController {
         self.fpc.surfaceView.backgroundColor = .clear
         self.fpc.surfaceView.cornerRadius = 16
         self.fpc.surfaceView.shadowHidden = false
+    }
+
+    private func getUserCoordinate() -> CLLocationCoordinate2D? {
+        let data = NSDataAsset(name: "UserLocation")!.data
+        let parser = GPXParser(withData: data)
+        guard
+            let point = parser.parsedData()?.waypoints.first,
+            let latitude = point.latitude,
+            let longitude = point.longitude
+        else {
+            return nil
+        }
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return coordinate
     }
 }
 
