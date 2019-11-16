@@ -35,6 +35,10 @@ final class RouteInfoView: UIView {
     private let stopsImageView = UIImageView()
     private let destionationImageView = UIImageView()
 
+    private let yourLocationToSourceLineView = DottedLineView()
+    private let sourceToStopsLineView = UIView()
+    private let stopsToDestinationLineView = UIView()
+
     init() {
         super.init(frame: .zero)
 
@@ -64,6 +68,27 @@ final class RouteInfoView: UIView {
         self.destionationImageView.frame = CGRect(origin: .zero, size: Layout.destinationImageSize)
         self.destionationImageView.frame.centerX = Layout.imageCenterX
         self.destionationImageView.frame.centerY = self.destionationLabel.center.y
+
+        self.yourLocationToSourceLineView.frame = CGRect(
+            origin: .zero,
+            size: CGSize(width: 1, height: self.sourceImageView.frame.minY - self.yourLocationImageView.frame.maxY + 2)
+        )
+        self.yourLocationToSourceLineView.frame.centerX = Layout.imageCenterX
+        self.yourLocationToSourceLineView.frame.origin.y = self.yourLocationImageView.frame.maxY - 1
+
+        self.sourceToStopsLineView.frame = CGRect(
+            origin: .zero,
+            size: CGSize(width: 1, height: self.stopsImageView.frame.minY - self.sourceImageView.frame.maxY - 4)
+        )
+        self.sourceToStopsLineView.frame.centerX = Layout.imageCenterX
+        self.sourceToStopsLineView.frame.origin.y = self.sourceImageView.frame.maxY + 2
+
+        self.stopsToDestinationLineView.frame = CGRect(
+            origin: .zero,
+            size: CGSize(width: 1, height: self.destionationImageView.frame.minY - self.stopsImageView.frame.maxY - 4)
+        )
+        self.stopsToDestinationLineView.frame.centerX = Layout.imageCenterX
+        self.stopsToDestinationLineView.frame.origin.y = self.stopsImageView.frame.maxY + 2
     }
 
     private func setupSubviews() {
@@ -78,6 +103,10 @@ final class RouteInfoView: UIView {
         self.addSubview(self.sourceImageView)
         self.addSubview(self.stopsImageView)
         self.addSubview(self.destionationImageView)
+
+        self.addSubview(self.yourLocationToSourceLineView)
+        self.addSubview(self.sourceToStopsLineView)
+        self.addSubview(self.stopsToDestinationLineView)
 
         self.yourLocationLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -117,6 +146,7 @@ final class RouteInfoView: UIView {
 
         self.setupLabelsText()
         self.setupImages()
+        self.setupLines()
     }
 
     private func setupLabelsText() {
@@ -140,6 +170,14 @@ final class RouteInfoView: UIView {
         self.sourceImageView.image = UIImage(named: "ellipse")
         self.stopsImageView.image = UIImage(named: "busStopIcon")
         self.destionationImageView.image = UIImage(named: "marker")
+    }
+
+    private func setupLines() {
+        self.yourLocationToSourceLineView.lineColor = .app
+        self.yourLocationToSourceLineView.horizontal = false
+        self.yourLocationToSourceLineView.round = true
+        self.sourceToStopsLineView.backgroundColor = .app
+        self.stopsToDestinationLineView.backgroundColor = .app
     }
 
     private static func makeTitleAttributedText(value: String, lineHeight: CGFloat) -> NSAttributedString {
