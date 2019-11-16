@@ -76,10 +76,18 @@ final class ViewController: UIViewController {
         self.mapView.addAnnotation(myAnnotation)
 
         if let userCoordinate = self.getUserCoordinate() {
-            let userAnnotation = MKPointAnnotation()
+            let userAnnotation = UserAnnotation()
             userAnnotation.coordinate = userCoordinate
             self.mapView.addAnnotation(userAnnotation)
         }
+
+        let busStopsCoordinates = self.getBusStopsCoordinates()
+        let busStopsAnnotations: [BusStopAnnotation] = busStopsCoordinates.map { coordinate in
+            let annotation = BusStopAnnotation()
+            annotation.coordinate = coordinate
+            return annotation
+        }
+        self.mapView.addAnnotations(busStopsAnnotations)
     }
 
     private func setupSearchVC() {
@@ -105,6 +113,15 @@ final class ViewController: UIViewController {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         return coordinate
     }
+
+    private func getBusStopsCoordinates() -> [CLLocationCoordinate2D] {
+        return [
+            CLLocationCoordinate2D(latitude: 53.5, longitude: -6.2),
+            CLLocationCoordinate2D(latitude: 53.9, longitude: -6.4),
+            CLLocationCoordinate2D(latitude: 52.8, longitude: -6.0),
+            CLLocationCoordinate2D(latitude: 52.6, longitude: -6.3),
+        ]
+    }
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -121,8 +138,20 @@ extension ViewController: MKMapViewDelegate {
                 annotationView = BusAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
             return annotationView
-        default:
+        case is BusStopAnnotation:
+            let identifier = "BusStop"
+            var annotationView: BusStopAnnotationView?
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusStopAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
+                annotationView = BusStopAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            }
+            return annotationView
+        case is UserAnnotation:
             return UserAnnotationView(annotation: annotation, reuseIdentifier: "User")
+        default:
+            return nil
         }
     }
 }
