@@ -15,7 +15,7 @@ import CoreGPX
 final class ViewController: UIViewController {
     private let mapView = MKMapView()
     private let fpc = FloatingPanelController()
-    private let searchViewController = SearchViewController()
+    private let bottomContainerController = BottomContainerViewController()
     private lazy var userTraсkingButton = UIButton()
     private var userCoordinate: CLLocationCoordinate2D?
 
@@ -74,7 +74,7 @@ final class ViewController: UIViewController {
 
         self.myAnnotation.start()
 
-        self.fpc.set(contentViewController: self.searchViewController)
+        self.fpc.set(contentViewController: self.bottomContainerController)
         self.fpc.delegate = self
         self.present(self.fpc, animated: true, completion: nil)
     }
@@ -104,7 +104,7 @@ final class ViewController: UIViewController {
     }
 
     private func setupSearchVC() {
-        self.searchViewController.delegate = self
+        self.bottomContainerController.searchViewController.delegate = self
     }
 
     private func setupFPC() {
@@ -253,7 +253,7 @@ extension ViewController: FloatingPanelControllerDelegate {
 
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         if vc.position == .half {
-            self.searchViewController.showKeyboard()
+            self.bottomContainerController.searchViewController.showKeyboard()
         }
     }
 }
@@ -295,6 +295,9 @@ extension ViewController: KeyboardStateDelegate {
 
 extension ViewController: SearchViewControllerDelegate {
     func searchViewController(vc: SearchViewController, searchText: String) {
-        self.fpc.move(to: .tip, animated: true)
+        self.bottomContainerController.state = .order
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.fpc.move(to: .half, animated: true)
+        }
     }
 }

@@ -22,6 +22,9 @@
 		88C691FC237F94AD006D5B29 /* BusStopAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C691FB237F94AD006D5B29 /* BusStopAnnotation.swift */; };
 		88C691FE237F9509006D5B29 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C691FD237F9509006D5B29 /* UserAnnotation.swift */; };
 		88C69202237F9623006D5B29 /* BusAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C69201237F9623006D5B29 /* BusAnnotation.swift */; };
+		88C692042380078D006D5B29 /* BottomContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C692032380078D006D5B29 /* BottomContainerViewController.swift */; };
+		88C6920623800853006D5B29 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C6920523800853006D5B29 /* OrderViewController.swift */; };
+		88C69208238030FA006D5B29 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C69207238030FA006D5B29 /* UIColor++.swift */; };
 		88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB20C237F888C0027213F /* UserAnnotationView.swift */; };
 		9B0C3CAB113736F967273D55 /* Pods_Buber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1193258B064023FAB79AC17 /* Pods_Buber.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,9 @@
 		88C691FB237F94AD006D5B29 /* BusStopAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopAnnotation.swift; sourceTree = "<group>"; };
 		88C691FD237F9509006D5B29 /* UserAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
 		88C69201237F9623006D5B29 /* BusAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnnotation.swift; sourceTree = "<group>"; };
+		88C692032380078D006D5B29 /* BottomContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomContainerViewController.swift; sourceTree = "<group>"; };
+		88C6920523800853006D5B29 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		88C69207238030FA006D5B29 /* UIColor++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		88EDB20C237F888C0027213F /* UserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotationView.swift; sourceTree = "<group>"; };
 		C1193258B064023FAB79AC17 /* Pods_Buber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				88A5A4FF237F8BB8003D8928 /* UIImage++.swift */,
+				88C69207238030FA006D5B29 /* UIColor++.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 				88A9CD44237F517400260FDE /* SceneDelegate.swift */,
 				88A9CD46237F517400260FDE /* ViewController.swift */,
 				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
+				88C692032380078D006D5B29 /* BottomContainerViewController.swift */,
+				88C6920523800853006D5B29 /* OrderViewController.swift */,
 				88C691FF237F95E0006D5B29 /* Annotations */,
 				88C69200237F95F2006D5B29 /* AnnotationViews */,
 				88A5A501237F8BBB003D8928 /* Extensions */,
@@ -298,8 +307,11 @@
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
 				88C691FC237F94AD006D5B29 /* BusStopAnnotation.swift in Sources */,
 				88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */,
+				88C692042380078D006D5B29 /* BottomContainerViewController.swift in Sources */,
 				88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */,
+				88C6920623800853006D5B29 /* OrderViewController.swift in Sources */,
 				88C691FE237F9509006D5B29 /* UserAnnotation.swift in Sources */,
+				88C69208238030FA006D5B29 /* UIColor++.swift in Sources */,
 				88A5A500237F8BB8003D8928 /* UIImage++.swift in Sources */,
 				88A9CD45237F517400260FDE /* SceneDelegate.swift in Sources */,
 			);
