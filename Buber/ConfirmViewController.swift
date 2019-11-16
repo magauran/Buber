@@ -77,10 +77,18 @@ final class ConfirmViewController: UIViewController {
         button.snp.makeConstraints { make in
             make.height.equalTo(46)
         }
+        button.addTarget(self, action: #selector(self.didTapOKButton), for: .touchUpInside)
 
         stackView.addArrangedSubview(title)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(description)
         stackView.addArrangedSubview(button)
+    }
+
+    @objc
+    private func didTapOKButton() {
+        self.view.window?.isHidden = true
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate, let window = delegate.window else { return }
+        window.makeKeyAndVisible()
     }
 }
