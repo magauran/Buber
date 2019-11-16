@@ -282,12 +282,15 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
 
     public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
         switch position {
-            case .full: return 16.0
             case .half:
                 return 400
             case .tip: return 70
             default: return nil
         }
+    }
+
+    var supportedPositions: Set<FloatingPanelPosition> {
+        return [.half, .tip]
     }
 }
 
