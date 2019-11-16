@@ -6,7 +6,7 @@
 //  Copyright © 2019 Alexey Salangin. All rights reserved.
 //
 
-import MapKit
+import CoreLocation
 
 extension CLLocationCoordinate2D {
     func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
