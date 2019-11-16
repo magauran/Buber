@@ -14,6 +14,13 @@ final class RouteInfoView: UIView {
         static let textRightInset: CGFloat = 0
         static let titleBottomInset: CGFloat = 8
         static let sectionHeight: CGFloat = 36
+
+        static let yourLocationImageSize = CGSize(width: 11, height: 11)
+        static let sourceImageSize = CGSize(width: 6, height: 6)
+        static let stopsImageSize = CGSize(width: 19, height: 19)
+        static let destinationImageSize = CGSize(width: 16, height: 16)
+
+        static let imageCenterX: CGFloat = 9.5
     }
 
     private let yourLocationLabel = UILabel()
@@ -22,6 +29,11 @@ final class RouteInfoView: UIView {
     private let busLabel = UILabel()
     private let stopsLabel = UILabel()
     private let destionationLabel = UILabel()
+
+    private let yourLocationImageView = UIImageView()
+    private let sourceImageView = UIImageView()
+    private let stopsImageView = UIImageView()
+    private let destionationImageView = UIImageView()
 
     init() {
         super.init(frame: .zero)
@@ -37,7 +49,21 @@ final class RouteInfoView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        self.yourLocationImageView.frame = CGRect(origin: .zero, size: Layout.yourLocationImageSize)
+        self.yourLocationImageView.frame.centerX = Layout.imageCenterX
+        self.yourLocationImageView.frame.centerY = self.yourLocationLabel.frame.center.y
 
+        self.sourceImageView.frame = CGRect(origin: .zero, size: Layout.sourceImageSize)
+        self.sourceImageView.frame.centerX = Layout.imageCenterX
+        self.sourceImageView.frame.centerY = self.sourceLabel.center.y
+
+        self.stopsImageView.frame = CGRect(origin: .zero, size: Layout.stopsImageSize)
+        self.stopsImageView.frame.centerX = Layout.imageCenterX
+        self.stopsImageView.frame.centerY = self.stopsLabel.center.y
+
+        self.destionationImageView.frame = CGRect(origin: .zero, size: Layout.destinationImageSize)
+        self.destionationImageView.frame.centerX = Layout.imageCenterX
+        self.destionationImageView.frame.centerY = self.destionationLabel.center.y
     }
 
     private func setupSubviews() {
@@ -47,6 +73,11 @@ final class RouteInfoView: UIView {
         self.addSubview(self.busLabel)
         self.addSubview(self.stopsLabel)
         self.addSubview(self.destionationLabel)
+
+        self.addSubview(self.yourLocationImageView)
+        self.addSubview(self.sourceImageView)
+        self.addSubview(self.stopsImageView)
+        self.addSubview(self.destionationImageView)
 
         self.yourLocationLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -85,6 +116,7 @@ final class RouteInfoView: UIView {
         }
 
         self.setupLabelsText()
+        self.setupImages()
     }
 
     private func setupLabelsText() {
@@ -101,6 +133,13 @@ final class RouteInfoView: UIView {
         ].forEach { label in
             label.numberOfLines = 0
         }
+    }
+
+    private func setupImages() {
+        self.yourLocationImageView.image = UIImage(named: "filledCircle")
+        self.sourceImageView.image = UIImage(named: "ellipse")
+        self.stopsImageView.image = UIImage(named: "busStopIcon")
+        self.destionationImageView.image = UIImage(named: "marker")
     }
 
     private static func makeTitleAttributedText(value: String, lineHeight: CGFloat) -> NSAttributedString {
