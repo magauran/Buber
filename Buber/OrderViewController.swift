@@ -53,6 +53,26 @@ final class OrderViewController: UIViewController {
         self.contentStackView.addArrangedSubview(self.separatorView)
         self.contentStackView.addArrangedSubview(self.paymentInfoView)
         self.contentStackView.addArrangedSubview(self.orderButton)
+
+        self.setupInfoView()
+    }
+
+    private func setupInfoView() {
+        let busInfoView = BusInfoView()
+        let routeInfoView = UIView()
+
+        self.infoView.addSubview(busInfoView)
+        self.infoView.addSubview(routeInfoView)
+
+        busInfoView.snp.makeConstraints { make in
+            make.top.left.bottom.equalToSuperview()
+        }
+
+        routeInfoView.snp.makeConstraints { make in
+            make.top.right.bottom.equalToSuperview()
+            make.left.equalTo(busInfoView.snp.right)
+            make.width.equalTo(busInfoView)
+        }
     }
 
     private static func makeSeparatorView() -> UIView {
