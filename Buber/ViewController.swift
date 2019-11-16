@@ -44,8 +44,8 @@ final class ViewController: UIViewController {
         self.userTraсkingButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(80)
             make.right.equalToSuperview().offset(-16)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
+            make.width.equalTo(44)
+            make.height.equalTo(44)
         }
 
         self.setupMapView()
@@ -111,8 +111,8 @@ final class ViewController: UIViewController {
     }
 
     private func setupUserTrackingButton() {
-        self.userTraсkingButton.backgroundColor = .red
         self.userTraсkingButton.addTarget(self, action: #selector(self.didTapUserTrackingButton), for: .touchUpInside)
+        self.userTraсkingButton.setImage(UIImage(named: "userTrackingIcon"), for: .normal)
     }
 
     private func getUserCoordinate() -> CLLocationCoordinate2D? {
