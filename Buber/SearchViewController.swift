@@ -28,6 +28,10 @@ final class SearchViewController: UIViewController {
         self.setupSubviews()
     }
 
+    func showKeyboard() {
+        self.whereToSearchField.becomeFirstResponder()
+    }
+
     private func setupSubviews() {
         self.view.addSubview(self.whereToSearchField)
         self.view.addSubview(self.searchButton)

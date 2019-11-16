@@ -248,6 +248,12 @@ extension ViewController: FloatingPanelControllerDelegate {
             self.fpc.view.endEditing(true)
         }
     }
+
+    func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
+        if vc.position == .half {
+            self.searchViewController.showKeyboard()
+        }
+    }
 }
 
 class MyFloatingPanelLayout: FloatingPanelLayout {
@@ -259,7 +265,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
         switch position {
             case .full: return 16.0
             case .half:
-                return 380
+                return 400
             case .tip: return 70
             default: return nil
         }
