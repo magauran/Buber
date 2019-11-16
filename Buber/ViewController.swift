@@ -157,7 +157,7 @@ final class ViewController: UIViewController {
         let directionRequest = MKDirections.Request()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
+        directionRequest.transportType = .walking
 
         let directions = MKDirections(request: directionRequest)
 
