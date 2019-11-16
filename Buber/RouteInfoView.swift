@@ -153,9 +153,9 @@ final class RouteInfoView: UIView {
         self.yourLocationLabel.attributedText = Self.makeTitleAttributedText(value: "Your location", lineHeight: 19)
         self.walkLabel.attributedText = Self.makeDescriptionAttributedText(value: "Walk for 250m, about 2 mins")
         self.sourceLabel.attributedText = Self.makeTitleAttributedText(value: "Aalto University", lineHeight: 19)
-        self.busLabel.attributedText = Self.makeDescriptionAttributedText(value: "Bus 550 Itäkeskus")
+        self.busLabel.attributedText = Self.makeDescriptionAttributedText(value: "Bus 550 Elfvik Quarry")
         self.stopsLabel.attributedText = Self.makeTitleAttributedText(value: "4 stops (12 mins)", lineHeight: 19)
-        self.destionationLabel.attributedText = Self.makeTitleAttributedText(value: "Itäkeskus", lineHeight: 18)
+        self.destionationLabel.attributedText = Self.makeTitleAttributedText(value: "Elfvik Quarry", lineHeight: 18)
 
         [
             self.yourLocationLabel, self.walkLabel, self.sourceLabel,

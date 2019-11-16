@@ -39,7 +39,7 @@ final class BusInfoView: UIView {
 
         let modelLabel = UILabel()
         modelLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        modelLabel.text = "Itäkeskus"
+        modelLabel.text = "Elfvik Quarry"
         modelLabel.snp.makeConstraints { make in
             make.height.equalTo(19)
         }
