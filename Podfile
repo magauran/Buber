@@ -7,4 +7,5 @@ target 'Buber' do
   pod 'FloatingPanel'
   pod 'SnapKit', '~> 5.0.1'
   pod 'Keyboardy', '~> 0.2.6'
+  pod 'Pulsator'
 end

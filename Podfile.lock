@@ -1,24 +1,28 @@
 PODS:
   - FloatingPanel (1.7.0)
   - Keyboardy (0.2.6)
+  - Pulsator (0.6.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - FloatingPanel
   - Keyboardy (~> 0.2.6)
+  - Pulsator
   - SnapKit (~> 5.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FloatingPanel
     - Keyboardy
+    - Pulsator
     - SnapKit
 
 SPEC CHECKSUMS:
   FloatingPanel: f686602da8eff56375e577f19be37348a95f4e24
   Keyboardy: 7c3771ffb379a4c72834f71a621ecc354ddbece2
+  Pulsator: eb5a9f9be4bdcbd19903984c65deca6aabe50a17
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: de03b421db410d8a96157ad640cd541af70c2190
+PODFILE CHECKSUM: 7a33041f7f3b66135b1c373be624b18ed90ae32f
 
 COCOAPODS: 1.6.1

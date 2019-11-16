@@ -16,6 +16,7 @@
 		88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD56237F520500260FDE /* MovingAnnotation.swift */; };
 		88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */; };
 		88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD5A237F677100260FDE /* SearchViewController.swift */; };
+		88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB20C237F888C0027213F /* UserAnnotationView.swift */; };
 		9B0C3CAB113736F967273D55 /* Pods_Buber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1193258B064023FAB79AC17 /* Pods_Buber.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		88A9CD56237F520500260FDE /* MovingAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAnnotation.swift; sourceTree = "<group>"; };
 		88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D++.swift"; sourceTree = "<group>"; };
 		88A9CD5A237F677100260FDE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		88EDB20C237F888C0027213F /* UserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotationView.swift; sourceTree = "<group>"; };
 		C1193258B064023FAB79AC17 /* Pods_Buber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				88A9CD46237F517400260FDE /* ViewController.swift */,
 				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
 				88A9CD56237F520500260FDE /* MovingAnnotation.swift */,
+				88EDB20C237F888C0027213F /* UserAnnotationView.swift */,
 				88A9CD58237F522300260FDE /* CLLocationCoordinate2D++.swift */,
 				88A9CD48237F517400260FDE /* Main.storyboard */,
 				88A9CD4B237F517600260FDE /* Assets.xcassets */,
@@ -180,6 +183,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Buber/Pods-Buber-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboardy/Keyboardy.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -188,6 +192,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keyboardy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +231,7 @@
 			files = (
 				88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */,
 				88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */,
+				88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
 				88A9CD59237F522300260FDE /* CLLocationCoordinate2D++.swift in Sources */,
 				88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */,

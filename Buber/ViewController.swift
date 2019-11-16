@@ -40,16 +40,7 @@ final class ViewController: UIViewController {
             self.mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
 
-        let startPosition = CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603)
-
-        let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 100000, longitudinalMeters: 100000)
-        mapView.setRegion(region, animated: true)
-
-        // Add annotation to map.
-        myAnnotation.coordinate = startPosition
-        mapView.addAnnotation(myAnnotation)
-
-
+        self.setupMapView()
         self.setupSearchVC()
         self.setupFPC()
     }
@@ -74,6 +65,20 @@ final class ViewController: UIViewController {
         self.present(self.fpc, animated: true, completion: nil)
     }
 
+    private func setupMapView() {
+        let startPosition = CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603)
+
+        let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        self.mapView.setRegion(region, animated: true)
+
+        myAnnotation.coordinate = startPosition
+        self.mapView.addAnnotation(myAnnotation)
+
+        let userAnnotation = MKPointAnnotation()
+        userAnnotation.coordinate = CLLocationCoordinate2D(latitude: 53.1, longitude: -6.26)
+        self.mapView.addAnnotation(userAnnotation)
+    }
+
     private func setupSearchVC() {
         self.searchViewController.delegate = self
     }
@@ -87,9 +92,9 @@ final class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        } else {
+        switch annotation {
+        case is MKUserLocation: return nil
+        case is MovingAnnotation:
             let identifier = "Pin"
             var annotationView: MKAnnotationView?
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
@@ -102,6 +107,8 @@ extension ViewController: MKMapViewDelegate {
             }
 
             return annotationView
+        default:
+            return UserAnnotationView(annotation: annotation, reuseIdentifier: "User")
         }
     }
 }
