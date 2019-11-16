@@ -20,13 +20,18 @@ final class ViewController: UIViewController {
     private var userCoordinate: CLLocationCoordinate2D?
 
     private let myAnnotation = BusAnnotation(route: [
-        CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603),
-        CLLocationCoordinate2D(latitude: 53.2369, longitude: -6.3633),
-        CLLocationCoordinate2D(latitude: 53.1369, longitude: -6.4633),
-        CLLocationCoordinate2D(latitude: 52.8369, longitude: -6.5633),
-        CLLocationCoordinate2D(latitude: 52.6369, longitude: -6.6633),
-        CLLocationCoordinate2D(latitude: 52.5369, longitude: -6.5633),
-        CLLocationCoordinate2D(latitude: 52.3369, longitude: -6.4633),
+        CLLocationCoordinate2D(latitude: 60.1875, longitude: 24.8234),
+        CLLocationCoordinate2D(latitude: 60.1865, longitude: 24.8224),
+        CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8213),
+        CLLocationCoordinate2D(latitude: 60.1845, longitude: 24.8206),
+        CLLocationCoordinate2D(latitude: 60.1835, longitude: 24.8204),
+        CLLocationCoordinate2D(latitude: 60.1845, longitude: 24.8226),
+        CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8229),
+        CLLocationCoordinate2D(latitude: 60.1865, longitude: 24.8232),
+        CLLocationCoordinate2D(latitude: 60.1875, longitude: 24.8242),
+        CLLocationCoordinate2D(latitude: 60.1885, longitude: 24.8252),
+        CLLocationCoordinate2D(latitude: 60.1895, longitude: 24.8262),
+        CLLocationCoordinate2D(latitude: 60.1885, longitude: 24.8242),
     ])
 
     override func viewDidLoad() {
@@ -75,9 +80,9 @@ final class ViewController: UIViewController {
     }
 
     private func setupMapView() {
-        let startPosition = CLLocationCoordinate2D(latitude: 53.3498, longitude: -6.2603)
+        let startPosition = CLLocationCoordinate2D(latitude: 60.1855, longitude: 24.8249)
 
-        let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 1000, longitudinalMeters: 1000)
         self.mapView.setRegion(region, animated: true)
 
         myAnnotation.coordinate = startPosition
@@ -132,10 +137,7 @@ final class ViewController: UIViewController {
 
     private func getBusStopsCoordinates() -> [CLLocationCoordinate2D] {
         return [
-            CLLocationCoordinate2D(latitude: 53.5, longitude: -6.2),
-            CLLocationCoordinate2D(latitude: 53.9, longitude: -6.4),
-            CLLocationCoordinate2D(latitude: 52.8, longitude: -6.0),
-            CLLocationCoordinate2D(latitude: 52.6, longitude: -6.3),
+            CLLocationCoordinate2D(latitude: 60.1869, longitude: 24.8276),
         ]
     }
 
