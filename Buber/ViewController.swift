@@ -143,8 +143,21 @@ final class ViewController: UIViewController {
 
     @objc
     private func didTapUserTrackingButton() {
+        self.setCenterForTipState()
+    }
+
+    private func setCenterForTipState() {
         guard let userCoordinate = self.getUserCoordinate() else { return }
         self.mapView.setCenter(userCoordinate, animated: true)
+    }
+
+    private func setCenterForHalfState() {
+        let deltaY = (0.5 * 400) / self.view.frame.height
+        let mapRegionHeight = self.mapView.region.span.latitudeDelta
+        let mapRegionDelta = mapRegionHeight * Double(deltaY)
+        guard let userCoordinate = self.getUserCoordinate() else { return }
+        let newCenter = CLLocationCoordinate2D(latitude: userCoordinate.latitude - mapRegionDelta, longitude: userCoordinate.longitude)
+        self.mapView.setCenter(newCenter, animated: true)
     }
 
     private func showRoute(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
@@ -254,6 +267,9 @@ extension ViewController: FloatingPanelControllerDelegate {
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         if vc.position == .half {
             self.bottomContainerController.searchViewController.showKeyboard()
+            self.setCenterForHalfState()
+        } else if vc.position == .tip {
+            self.setCenterForTipState()
         }
     }
 }
