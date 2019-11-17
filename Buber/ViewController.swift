@@ -93,6 +93,8 @@ final class ViewController: UIViewController {
         }
 
         self.mapView.isPitchEnabled = false
+        self.mapView.showsCompass = false
+        self.mapView.isRotateEnabled = false
     }
 
     private func setupSearchVC() {
@@ -401,6 +403,7 @@ extension ViewController: OrderViewControllerDelegate {
 
     func orderViewControllerDidTapInBusButton(_ vc: OrderViewController) {
         self.fpc.move(to: .half, animated: true)
+        self.fpc.surfaceView.grabberHandle.isHidden = true
         self.bottomContainerController.state = .inBus
     }
 
@@ -429,6 +432,7 @@ extension ViewController: InBusViewControllerDelegate {
         self.removeAllRoutes()
         self.removeAllBusStops()
         self.busAnnotations = []
+        self.fpc.surfaceView.grabberHandle.isHidden = true
         self.fpc.view.endEditing(true)
     }
 }

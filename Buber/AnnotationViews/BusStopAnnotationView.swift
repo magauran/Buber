@@ -21,7 +21,7 @@ class BusStopAnnotationView: MKAnnotationView {
     }
 
     private func setupImage() {
-        let image = UIImage(named: "busStop")?.resize(targetSize: CGSize(width: 13, height: 13))
+        let image = UIImage(named: "busStop")?.resize(targetSize: CGSize(width: 20, height: 20))
         self.image = image
     }
 }
