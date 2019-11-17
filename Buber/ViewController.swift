@@ -20,9 +20,16 @@ final class ViewController: UIViewController {
     private var userCoordinate: CLLocationCoordinate2D?
     private var coveringWindow: UIWindow?
 
-    private lazy var busAnnotation = BusAnnotation(
-        route: self.getBusRoute()
-    )
+    private lazy var busAnnotations: [BusAnnotation] = {
+        let route = self.getBusRoute()
+        return (0 ..< 3).map {
+            let position = Double($0) / 3.0
+            return BusAnnotation(
+                route: route,
+                relativePosition: position
+            )
+        }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +127,7 @@ final class ViewController: UIViewController {
     }
 
     private func getBusStopCoordinate() -> CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: 60.1869, longitude: 24.8276)
+        CLLocationCoordinate2D(latitude: 60.183590000000002, longitude: 24.827850000000002)
     }
 
     private func getBusRoute() -> [CLLocationCoordinate2D] {
@@ -206,9 +213,9 @@ final class ViewController: UIViewController {
         self.showRoute(pickupCoordinate: pickupCoordinate, destinationCoordinate: busStopCoordinate)
     }
 
-    private func showBus() {
-        self.mapView.addAnnotation(self.busAnnotation)
-        self.busAnnotation.start()
+    private func showBuses() {
+        self.mapView.addAnnotations(self.busAnnotations)
+        self.busAnnotations.forEach { $0.start() }
     }
 }
 
@@ -229,12 +236,12 @@ extension ViewController: MKMapViewDelegate {
         case is BusStopAnnotation:
             let identifier = "BusStop"
             var annotationView: BusStopAnnotationView?
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusStopAnnotationView {
-                dequeuedView.annotation = annotation
-                annotationView = dequeuedView
-            } else {
+//            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusStopAnnotationView {
+//                dequeuedView.annotation = annotation
+//                annotationView = dequeuedView
+//            } else {
                 annotationView = BusStopAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            }
+//            }
             return annotationView
         case is UserAnnotation:
             return UserAnnotationView(annotation: annotation, reuseIdentifier: "User")
@@ -331,7 +338,7 @@ extension ViewController: KeyboardStateDelegate {
 extension ViewController: SearchViewControllerDelegate {
     func searchViewController(vc: SearchViewController, searchText: String) {
         self.showBusStop()
-        self.showBus()
+        self.showBuses()
 
         self.bottomContainerController.state = .order
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

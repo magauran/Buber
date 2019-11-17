@@ -29,6 +29,7 @@
 		88DD2D642380824D00C9E33F /* CGRect++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD2D632380824D00C9E33F /* CGRect++.swift */; };
 		88DD2D6623808BF600C9E33F /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD2D6523808BF600C9E33F /* DottedLineView.swift */; };
 		88DD2D6823809D2300C9E33F /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD2D6723809D2300C9E33F /* ConfirmViewController.swift */; };
+		88DD2D6A2380CA6200C9E33F /* Array++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DD2D692380CA6200C9E33F /* Array++.swift */; };
 		88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB20C237F888C0027213F /* UserAnnotationView.swift */; };
 		9B0C3CAB113736F967273D55 /* Pods_Buber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1193258B064023FAB79AC17 /* Pods_Buber.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		88DD2D632380824D00C9E33F /* CGRect++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect++.swift"; sourceTree = "<group>"; };
 		88DD2D6523808BF600C9E33F /* DottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineView.swift; sourceTree = "<group>"; };
 		88DD2D6723809D2300C9E33F /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		88DD2D692380CA6200C9E33F /* Array++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array++.swift"; sourceTree = "<group>"; };
 		88EDB20C237F888C0027213F /* UserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotationView.swift; sourceTree = "<group>"; };
 		C1193258B064023FAB79AC17 /* Pods_Buber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				88DD2D622380823C00C9E33F /* CoreGraphics */,
 				88A5A502237F8BD8003D8928 /* CoreLocation */,
 				88A5A503237F8BEB003D8928 /* UIKit */,
+				88DD2D6B2380CA6600C9E33F /* Swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +174,14 @@
 				88DD2D632380824D00C9E33F /* CGRect++.swift */,
 			);
 			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		88DD2D6B2380CA6600C9E33F /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				88DD2D692380CA6200C9E33F /* Array++.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 		90967953265EB0710A310700 /* Pods */ = {
@@ -320,6 +331,7 @@
 				88A9CD5B237F677100260FDE /* SearchViewController.swift in Sources */,
 				88A9CD57237F520500260FDE /* MovingAnnotation.swift in Sources */,
 				88A5A4FE237F8ADE003D8928 /* BusAnnotationView.swift in Sources */,
+				88DD2D6A2380CA6200C9E33F /* Array++.swift in Sources */,
 				88DD2D642380824D00C9E33F /* CGRect++.swift in Sources */,
 				88C69202237F9623006D5B29 /* BusAnnotation.swift in Sources */,
 				88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */,
