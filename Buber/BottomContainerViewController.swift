@@ -37,6 +37,7 @@ final class BottomContainerViewController: UIViewController {
         let animations = {
             switch self.state {
             case .search:
+                self.searchViewController.clearTextField()
                 self.orderViewController.view.removeFromSuperview()
                 self.view.addSubview(self.searchViewController.view)
                 self.searchViewController.view.snp.makeConstraints { make in

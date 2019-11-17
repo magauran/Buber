@@ -43,6 +43,10 @@ final class SearchViewController: UIViewController {
         self.whereToSearchField.becomeFirstResponder()
     }
 
+    func clearTextField() {
+        self.whereToSearchField.text = nil
+    }
+
     private func setupSubviews() {
         self.view.addSubview(self.searchImageView)
         self.view.addSubview(self.whereToSearchField)
