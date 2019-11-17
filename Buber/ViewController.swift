@@ -318,6 +318,14 @@ extension ViewController: FloatingPanelControllerDelegate {
             self.fpc.view.endEditing(true)
         }
     }
+
+    func floatingPanelShouldBeginDragging(_ vc: FloatingPanelController) -> Bool {
+        if self.bottomContainerController.state == .inBus {
+            return false
+        } else {
+            return true
+        }
+    }
 }
 
 class MyFloatingPanelLayout: FloatingPanelLayout {
@@ -387,7 +395,8 @@ extension ViewController: OrderViewControllerDelegate {
     }
 
     func orderViewControllerDidTapInBusButton(_ vc: OrderViewController) {
-        // nothing
+        self.fpc.move(to: .half, animated: true)
+        self.bottomContainerController.state = .inBus
     }
 
     func orderViewControllerDidTapCancelButton(_ vc: OrderViewController) {

@@ -14,10 +14,12 @@ final class BottomContainerViewController: UIViewController {
         case search
         case order
         case waiting
+        case inBus
     }
 
     let searchViewController = SearchViewController()
     let orderViewController = OrderViewController()
+    let inBusViewController = InBusViewController()
 
     var state: State = .search {
         didSet {
@@ -53,6 +55,12 @@ final class BottomContainerViewController: UIViewController {
                 self.orderViewController.setupForOrderState()
             case .waiting:
                 self.orderViewController.setupForWaitingState()
+            case .inBus:
+                self.orderViewController.view.removeFromSuperview()
+                self.view.addSubview(self.inBusViewController.view)
+                self.inBusViewController.view.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
             }
         }
 

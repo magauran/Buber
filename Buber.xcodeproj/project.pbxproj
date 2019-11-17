@@ -11,7 +11,7 @@
 		882383FB2380DDFF00F852F0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 882383F92380DDF900F852F0 /* Poppins-Regular.ttf */; };
 		882383FE2380DEA700F852F0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 882383FD2380DEA200F852F0 /* Poppins-Bold.ttf */; };
 		882384002380DEC300F852F0 /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882383FF2380DEC300F852F0 /* UIFont++.swift */; };
-		8823840423810E2900F852F0 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823840323810E2900F852F0 /* WaitingViewController.swift */; };
+		8823840423810E2900F852F0 /* InBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823840323810E2900F852F0 /* InBusViewController.swift */; };
 		88A5A4FE237F8ADE003D8928 /* BusAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */; };
 		88A5A500237F8BB8003D8928 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5A4FF237F8BB8003D8928 /* UIImage++.swift */; };
 		88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD42237F517400260FDE /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		882383F92380DDF900F852F0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		882383FD2380DEA200F852F0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		882383FF2380DEC300F852F0 /* UIFont++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
-		8823840323810E2900F852F0 /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		8823840323810E2900F852F0 /* InBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InBusViewController.swift; sourceTree = "<group>"; };
 		88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnnotationView.swift; sourceTree = "<group>"; };
 		88A5A4FF237F8BB8003D8928 /* UIImage++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage++.swift"; sourceTree = "<group>"; };
 		88A9CD3F237F517400260FDE /* Buber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +158,7 @@
 				88DD2D602380747500C9E33F /* RouteInfoView.swift */,
 				88DD2D6523808BF600C9E33F /* DottedLineView.swift */,
 				88DD2D6723809D2300C9E33F /* ConfirmViewController.swift */,
-				8823840323810E2900F852F0 /* WaitingViewController.swift */,
+				8823840323810E2900F852F0 /* InBusViewController.swift */,
 				88C691FF237F95E0006D5B29 /* Annotations */,
 				88C69200237F95F2006D5B29 /* AnnotationViews */,
 				88A5A501237F8BBB003D8928 /* Extensions */,
@@ -362,7 +362,7 @@
 				88C69202237F9623006D5B29 /* BusAnnotation.swift in Sources */,
 				88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */,
 				88DD2D612380747500C9E33F /* RouteInfoView.swift in Sources */,
-				8823840423810E2900F852F0 /* WaitingViewController.swift in Sources */,
+				8823840423810E2900F852F0 /* InBusViewController.swift in Sources */,
 				882384002380DEC300F852F0 /* UIFont++.swift in Sources */,
 				88C691FA237F91F4006D5B29 /* BusStopAnnotationView.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
