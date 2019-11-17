@@ -98,6 +98,40 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		882384052381292400F852F0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88DD2D6723809D2300C9E33F /* ConfirmViewController.swift */,
+				8823840323810E2900F852F0 /* InBusViewController.swift */,
+				88A9CD46237F517400260FDE /* ViewController.swift */,
+				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
+				88C692032380078D006D5B29 /* BottomContainerViewController.swift */,
+				88C6920523800853006D5B29 /* OrderViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		882384062381293800F852F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88C692092380328D006D5B29 /* PaymentView.swift */,
+				88DD2D5E2380403400C9E33F /* BusInfoView.swift */,
+				88DD2D602380747500C9E33F /* RouteInfoView.swift */,
+				88DD2D6523808BF600C9E33F /* DottedLineView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		882384072381294500F852F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				88A9CD4B237F517600260FDE /* Assets.xcassets */,
+				882383F62380DDD100F852F0 /* Fonts */,
+				88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		88A5A501237F8BBB003D8928 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,22 +183,12 @@
 			isa = PBXGroup;
 			children = (
 				88A9CD42237F517400260FDE /* AppDelegate.swift */,
-				88A9CD46237F517400260FDE /* ViewController.swift */,
-				88A9CD5A237F677100260FDE /* SearchViewController.swift */,
-				88C692032380078D006D5B29 /* BottomContainerViewController.swift */,
-				88C6920523800853006D5B29 /* OrderViewController.swift */,
-				88C692092380328D006D5B29 /* PaymentView.swift */,
-				88DD2D5E2380403400C9E33F /* BusInfoView.swift */,
-				88DD2D602380747500C9E33F /* RouteInfoView.swift */,
-				88DD2D6523808BF600C9E33F /* DottedLineView.swift */,
-				88DD2D6723809D2300C9E33F /* ConfirmViewController.swift */,
-				8823840323810E2900F852F0 /* InBusViewController.swift */,
+				882384062381293800F852F0 /* Views */,
+				882384052381292400F852F0 /* ViewControllers */,
 				88C691FF237F95E0006D5B29 /* Annotations */,
 				88C69200237F95F2006D5B29 /* AnnotationViews */,
 				88A5A501237F8BBB003D8928 /* Extensions */,
-				88A9CD4B237F517600260FDE /* Assets.xcassets */,
-				882383F62380DDD100F852F0 /* Fonts */,
-				88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */,
+				882384072381294500F852F0 /* Resources */,
 				88A9CD50237F517600260FDE /* Info.plist */,
 			);
 			path = Buber;
