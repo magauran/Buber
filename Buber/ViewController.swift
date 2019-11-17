@@ -313,7 +313,6 @@ extension ViewController: FloatingPanelControllerDelegate {
             self.setCenterForHalfState()
         } else if vc.position == .tip {
             self.setCenterForTipState()
-            self.bottomContainerController.state = .search
             self.fpc.view.endEditing(true)
         }
     }
