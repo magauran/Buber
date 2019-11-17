@@ -389,8 +389,8 @@ extension ViewController: OrderViewControllerDelegate {
 
 extension ViewController: ConfirmViewControllerDelegate {
     func confirmViewControllerDidClose(_ vc: ConfirmViewController) {
-        self.fpc.move(to: .tip, animated: true)
-        self.bottomContainerController.state = .search
+//        self.fpc.move(to: .tip, animated: true)
+        self.bottomContainerController.state = .waiting
         self.removeAllBuses()
         self.removeAllRoutes()
         self.removeAllBusStops()

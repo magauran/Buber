@@ -13,6 +13,7 @@ final class BottomContainerViewController: UIViewController {
     enum State {
         case search
         case order
+        case waiting
     }
 
     let searchViewController = SearchViewController()
@@ -44,14 +45,22 @@ final class BottomContainerViewController: UIViewController {
                     make.edges.equalToSuperview()
                 }
             case .order:
+                self.orderViewController.setupForOrderState()
                 self.searchViewController.view.removeFromSuperview()
                 self.view.addSubview(self.orderViewController.view)
                 self.orderViewController.view.snp.makeConstraints { make in
                     make.edges.equalToSuperview()
                 }
+            case .waiting:
+                self.orderViewController.setupForWaitingState()
             }
         }
 
+        guard self.state != .waiting else {
+            animations()
+            return
+        }
+        
         UIView.transition(
             with: self.view,
             duration: 0.3,

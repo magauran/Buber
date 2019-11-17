@@ -22,9 +22,13 @@ final class OrderViewController: UIViewController {
     private let separatorView: UIView
     private let paymentInfoView = PaymentView()
     private let orderButton: UIButton
+    private let inBusButton: UIButton
+    private let cancelButton: UIButton
 
     init() {
         self.orderButton = Self.makeOrderButton()
+        self.inBusButton = Self.makeInBusButton()
+        self.cancelButton = Self.makeCancelButton()
         self.separatorView = Self.makeSeparatorView()
 
         super.init(nibName: nil, bundle: nil)
@@ -35,6 +39,24 @@ final class OrderViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupForOrderState() {
+        self.orderButton.isHidden = false
+        self.paymentInfoView.isHidden = false
+        self.cancelButton.isHidden = true
+        self.inBusButton.isHidden = true
+        self.contentStackView.setCustomSpacing(24, after: self.inBusButton)
+        self.contentStackView.setCustomSpacing(24, after: self.separatorView)
+    }
+
+    func setupForWaitingState() {
+        self.orderButton.isHidden = true
+        self.paymentInfoView.isHidden = true
+        self.cancelButton.isHidden = false
+        self.inBusButton.isHidden = false
+        self.contentStackView.setCustomSpacing(12, after: self.inBusButton)
+        self.contentStackView.setCustomSpacing(18, after: self.separatorView)
     }
 
     override func viewDidLoad() {
@@ -56,10 +78,16 @@ final class OrderViewController: UIViewController {
 
         self.contentStackView.addArrangedSubview(self.infoView)
         self.contentStackView.addArrangedSubview(self.separatorView)
+
         self.contentStackView.addArrangedSubview(self.paymentInfoView)
         self.contentStackView.addArrangedSubview(self.orderButton)
 
+        self.contentStackView.addArrangedSubview(self.inBusButton)
+        self.contentStackView.addArrangedSubview(self.cancelButton)
+
         self.setupInfoView()
+
+        self.setupForOrderState()
 
         self.orderButton.addTarget(self, action: #selector(self.didTapOrderButton), for: .touchUpInside)
     }
@@ -103,6 +131,44 @@ final class OrderViewController: UIViewController {
         button.layer.masksToBounds = true
         let attributedTitle = NSAttributedString(
             string: "Order bus",
+            attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.appMedium(16)
+            ]
+        )
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.snp.makeConstraints { make in
+            make.height.equalTo(46)
+        }
+        return button
+    }
+
+    private static func makeInBusButton() -> UIButton {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage.imageWith(color: .app), for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        let attributedTitle = NSAttributedString(
+            string: "I'm in the bus",
+            attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.appMedium(16)
+            ]
+        )
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.snp.makeConstraints { make in
+            make.height.equalTo(46)
+        }
+        return button
+    }
+
+    private static func makeCancelButton() -> UIButton {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage.imageWith(color: .cancel), for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        let attributedTitle = NSAttributedString(
+            string: "Cancel",
             attributes: [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.appMedium(16)

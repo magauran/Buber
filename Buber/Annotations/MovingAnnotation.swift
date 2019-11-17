@@ -39,7 +39,6 @@ class MovingAnnotation: NSObject, MKAnnotation {
                 let coef = newDuration / duration
                 duration = newDuration
                 let dest = self.interpolate(start: currentCoordinate, end: nextCoordinate, value: coef)
-                print(duration)
                 UIView.animate(
                     withDuration: duration,
                     delay: 0.0,
@@ -52,7 +51,6 @@ class MovingAnnotation: NSObject, MKAnnotation {
                     }
                 )
             } else {
-                print(duration)
                 UIView.animate(
                     withDuration: duration,
                     delay: 0.0,
