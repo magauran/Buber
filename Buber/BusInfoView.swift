@@ -46,7 +46,7 @@ final class BusInfoView: UIView {
 
         let busView = UIStackView()
         busView.axis = .horizontal
-        busView.spacing = 8
+        busView.spacing = 15
 
         busView.snp.makeConstraints { make in
             make.height.equalTo(39)

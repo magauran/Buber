@@ -53,13 +53,13 @@ final class PaymentView: UIView {
         self.bankCardStackView.addArrangedSubview(self.paymentSystemLogoImageView)
         self.bankCardStackView.addArrangedSubview(self.bankCardLabel)
         self.bankCardStackView.axis = .horizontal
-        self.bankCardStackView.spacing = 30
+        self.bankCardStackView.spacing = 12
 
         self.paymentSystemLogoImageView.image = UIImage(named: "mastercard")
         self.paymentSystemLogoImageView.snp.makeConstraints { make in
-            make.width.equalTo(30)
+            make.width.equalTo(97)
         }
-        self.bankCardLabel.text = "**** 2384"
+        self.bankCardLabel.text = "2384"
         self.bankCardLabel.font = UIFont.appRegular(16)
     }
 
