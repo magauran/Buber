@@ -20,7 +20,7 @@ final class ViewController: UIViewController {
     private var userCoordinate: CLLocationCoordinate2D?
     private var coveringWindow: UIWindow?
 
-    private lazy var myAnnotation = BusAnnotation(
+    private lazy var busAnnotation = BusAnnotation(
         route: self.getBusRoute()
     )
 
@@ -65,8 +65,6 @@ final class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.myAnnotation.start()
-
         self.fpc.set(contentViewController: self.bottomContainerController)
         self.fpc.delegate = self
         self.present(self.fpc, animated: true, completion: nil)
@@ -77,9 +75,6 @@ final class ViewController: UIViewController {
 
         let region = MKCoordinateRegion(center: startPosition, latitudinalMeters: 1000, longitudinalMeters: 1000)
         self.mapView.setRegion(region, animated: true)
-
-        myAnnotation.coordinate = startPosition
-        self.mapView.addAnnotation(myAnnotation)
 
         if let userCoordinate = self.getUserCoordinate() {
             let userAnnotation = UserAnnotation()
@@ -197,6 +192,23 @@ final class ViewController: UIViewController {
         self.mapView.overlays.filter { $0 is MKPolyline }.forEach { overlay in
             self.mapView.removeOverlay(overlay)
         }
+    }
+
+    private func showBusStop() {
+        let busStopCoordinate = self.getBusStopCoordinate()
+        let annotation = BusStopAnnotation()
+        annotation.coordinate = busStopCoordinate
+        self.mapView.addAnnotation(annotation)
+
+        guard let pickupCoordinate = self.userCoordinate else { return }
+
+        self.removeAllRoutes()
+        self.showRoute(pickupCoordinate: pickupCoordinate, destinationCoordinate: busStopCoordinate)
+    }
+
+    private func showBus() {
+        self.mapView.addAnnotation(self.busAnnotation)
+        self.busAnnotation.start()
     }
 }
 
@@ -318,15 +330,8 @@ extension ViewController: KeyboardStateDelegate {
 
 extension ViewController: SearchViewControllerDelegate {
     func searchViewController(vc: SearchViewController, searchText: String) {
-        let busStopCoordinate = self.getBusStopCoordinate()
-        let annotation = BusStopAnnotation()
-        annotation.coordinate = busStopCoordinate
-        self.mapView.addAnnotation(annotation)
-
-        guard let pickupCoordinate = self.userCoordinate else { return }
-
-        self.removeAllRoutes()
-        self.showRoute(pickupCoordinate: pickupCoordinate, destinationCoordinate: busStopCoordinate)
+        self.showBusStop()
+        self.showBus()
 
         self.bottomContainerController.state = .order
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
