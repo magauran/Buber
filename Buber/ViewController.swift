@@ -20,16 +20,7 @@ final class ViewController: UIViewController {
     private var userCoordinate: CLLocationCoordinate2D?
     private var coveringWindow: UIWindow?
 
-    private lazy var busAnnotations: [BusAnnotation] = {
-        let route = self.getBusRoute()
-        return (0 ..< 3).map {
-            let position = Double($0) / 3.0
-            return BusAnnotation(
-                route: route,
-                relativePosition: position
-            )
-        }
-    }()
+    private var busAnnotations: [BusAnnotation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +66,17 @@ final class ViewController: UIViewController {
         self.fpc.set(contentViewController: self.bottomContainerController)
         self.fpc.delegate = self
         self.present(self.fpc, animated: true, completion: nil)
+    }
+
+    private func setupBusAnnotations() {
+        let route = self.getBusRoute()
+        self.busAnnotations = (0 ..< 3).map {
+            let position = Double($0) / 3.0
+            return BusAnnotation(
+                route: route,
+                relativePosition: position
+            )
+        }
     }
 
     private func setupMapView() {
@@ -349,6 +351,7 @@ extension ViewController: KeyboardStateDelegate {
 
 extension ViewController: SearchViewControllerDelegate {
     func searchViewController(vc: SearchViewController, searchText: String) {
+        self.setupBusAnnotations()
         self.showBusStop()
         self.showBuses()
 
@@ -382,5 +385,6 @@ extension ViewController: ConfirmViewControllerDelegate {
         self.removeAllBuses()
         self.removeAllRoutes()
         self.removeAllBusStops()
+        self.busAnnotations = []
     }
 }
