@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol InBusViewControllerDelegate: AnyObject {
+    func inBusViewControllerDidTapFinishButton(_ vc: InBusViewController)
+}
+
 final class InBusViewController: UIViewController {
+    weak var delegate: InBusViewControllerDelegate?
+
     private let finishButton: UIButton
     private let starsImageView = UIImageView()
     private let rateUsLabel = UILabel()
@@ -58,6 +64,13 @@ final class InBusViewController: UIViewController {
 
         stackView.setCustomSpacing(24, after: self.rateUsLabel)
         stackView.setCustomSpacing(110, after: self.starsImageView)
+
+        self.finishButton.addTarget(self, action: #selector(self.didTapFinishButton), for: .touchUpInside)
+    }
+
+    @objc
+    private func didTapFinishButton() {
+        self.delegate?.inBusViewControllerDidTapFinishButton(self)
     }
 
     private static func makeFinishButton() -> UIButton {

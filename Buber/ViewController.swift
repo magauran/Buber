@@ -46,6 +46,7 @@ final class ViewController: UIViewController {
         self.setupMapView()
         self.setupSearchVC()
         self.setupOrderVC()
+        self.setupInBusVC()
         self.setupFPC()
         self.setupUserTrackingButton()
     }
@@ -100,6 +101,10 @@ final class ViewController: UIViewController {
 
     private func setupOrderVC() {
         self.bottomContainerController.orderViewController.delegate = self
+    }
+
+    private func setupInBusVC() {
+        self.bottomContainerController.inBusViewController.delegate = self
     }
 
     private func setupFPC() {
@@ -413,5 +418,17 @@ extension ViewController: OrderViewControllerDelegate {
 extension ViewController: ConfirmViewControllerDelegate {
     func confirmViewControllerDidClose(_ vc: ConfirmViewController) {
         self.bottomContainerController.state = .waiting
+    }
+}
+
+extension ViewController: InBusViewControllerDelegate {
+    func inBusViewControllerDidTapFinishButton(_ vc: InBusViewController) {
+        self.fpc.move(to: .tip, animated: true)
+        self.bottomContainerController.state = .search
+        self.removeAllBuses()
+        self.removeAllRoutes()
+        self.removeAllBusStops()
+        self.busAnnotations = []
+        self.fpc.view.endEditing(true)
     }
 }
