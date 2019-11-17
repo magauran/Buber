@@ -385,15 +385,24 @@ extension ViewController: OrderViewControllerDelegate {
             coveringWindow.makeKeyAndVisible()
         }
     }
-}
 
-extension ViewController: ConfirmViewControllerDelegate {
-    func confirmViewControllerDidClose(_ vc: ConfirmViewController) {
-//        self.fpc.move(to: .tip, animated: true)
-        self.bottomContainerController.state = .waiting
+    func orderViewControllerDidTapInBusButton(_ vc: OrderViewController) {
+        // nothing
+    }
+
+    func orderViewControllerDidTapCancelButton(_ vc: OrderViewController) {
+        self.fpc.move(to: .tip, animated: true)
+        self.bottomContainerController.state = .search
         self.removeAllBuses()
         self.removeAllRoutes()
         self.removeAllBusStops()
         self.busAnnotations = []
+        self.fpc.view.endEditing(true)
+    }
+}
+
+extension ViewController: ConfirmViewControllerDelegate {
+    func confirmViewControllerDidClose(_ vc: ConfirmViewController) {
+        self.bottomContainerController.state = .waiting
     }
 }

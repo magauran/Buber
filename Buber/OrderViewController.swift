@@ -11,6 +11,8 @@ import SnapKit
 
 protocol OrderViewControllerDelegate: AnyObject {
     func orderViewControllerDidTapOrderButton(_ vc: OrderViewController)
+    func orderViewControllerDidTapInBusButton(_ vc: OrderViewController)
+    func orderViewControllerDidTapCancelButton(_ vc: OrderViewController)
 }
 
 final class OrderViewController: UIViewController {
@@ -90,6 +92,8 @@ final class OrderViewController: UIViewController {
         self.setupForOrderState()
 
         self.orderButton.addTarget(self, action: #selector(self.didTapOrderButton), for: .touchUpInside)
+        self.inBusButton.addTarget(self, action: #selector(self.didTapInBusButton), for: .touchUpInside)
+        self.cancelButton.addTarget(self, action: #selector(self.didTapCancelButton), for: .touchUpInside)
     }
 
     private func setupInfoView() {
@@ -113,6 +117,16 @@ final class OrderViewController: UIViewController {
     @objc
     private func didTapOrderButton() {
         self.delegate?.orderViewControllerDidTapOrderButton(self)
+    }
+
+    @objc
+    private func didTapInBusButton() {
+        self.delegate?.orderViewControllerDidTapInBusButton(self)
+    }
+
+    @objc
+    private func didTapCancelButton() {
+        self.delegate?.orderViewControllerDidTapCancelButton(self)
     }
 
     private static func makeSeparatorView() -> UIView {

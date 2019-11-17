@@ -45,12 +45,12 @@ final class BottomContainerViewController: UIViewController {
                     make.edges.equalToSuperview()
                 }
             case .order:
-                self.orderViewController.setupForOrderState()
                 self.searchViewController.view.removeFromSuperview()
                 self.view.addSubview(self.orderViewController.view)
                 self.orderViewController.view.snp.makeConstraints { make in
                     make.edges.equalToSuperview()
                 }
+                self.orderViewController.setupForOrderState()
             case .waiting:
                 self.orderViewController.setupForWaitingState()
             }
@@ -60,7 +60,7 @@ final class BottomContainerViewController: UIViewController {
             animations()
             return
         }
-        
+
         UIView.transition(
             with: self.view,
             duration: 0.3,
