@@ -54,7 +54,7 @@ final class ConfirmViewController: UIViewController {
         let title = UILabel()
         title.textAlignment = .center
         title.text = "Your bus is on the way!"
-        title.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        title.font = UIFont.appMedium(16)
 
         let imageView = UIImageView()
         imageView.image = UIImage(named: "busPhoto")
@@ -66,10 +66,18 @@ final class ConfirmViewController: UIViewController {
         let description = UILabel()
         description.text = "Bus no. 550 is about 4 minutes away to Aalto University station to pick you up. Have a fun ride!"
         description.numberOfLines = 0
-        description.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        description.font = UIFont.appRegular(12)
 
         let button = UIButton()
-        button.setTitle("OK", for: .normal)
+
+        let attributedTitle = NSAttributedString(
+            string: "OK",
+            attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.appMedium(16)
+            ]
+        )
+        button.setAttributedTitle(attributedTitle, for: .normal)
         let image = UIImage.imageWith(color: .app)
         button.setBackgroundImage(image, for: .normal)
         button.layer.cornerRadius = 10

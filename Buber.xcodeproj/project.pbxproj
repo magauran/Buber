@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882383FA2380DDFD00F852F0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 882383F82380DDF900F852F0 /* Poppins-Medium.ttf */; };
+		882383FB2380DDFF00F852F0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 882383F92380DDF900F852F0 /* Poppins-Regular.ttf */; };
+		882383FE2380DEA700F852F0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 882383FD2380DEA200F852F0 /* Poppins-Bold.ttf */; };
+		882384002380DEC300F852F0 /* UIFont++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882383FF2380DEC300F852F0 /* UIFont++.swift */; };
 		88A5A4FE237F8ADE003D8928 /* BusAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */; };
 		88A5A500237F8BB8003D8928 /* UIImage++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5A4FF237F8BB8003D8928 /* UIImage++.swift */; };
 		88A9CD43237F517400260FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9CD42237F517400260FDE /* AppDelegate.swift */; };
@@ -37,6 +41,10 @@
 /* Begin PBXFileReference section */
 		0DCCCD4B82F147CD02E787B6 /* Pods-Buber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.debug.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.debug.xcconfig"; sourceTree = "<group>"; };
 		0DDF0831402C3F1421FE91D3 /* Pods-Buber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buber.release.xcconfig"; path = "Target Support Files/Pods-Buber/Pods-Buber.release.xcconfig"; sourceTree = "<group>"; };
+		882383F82380DDF900F852F0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		882383F92380DDF900F852F0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		882383FD2380DEA200F852F0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		882383FF2380DEC300F852F0 /* UIFont++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont++.swift"; sourceTree = "<group>"; };
 		88A5A4FD237F8ADE003D8928 /* BusAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusAnnotationView.swift; sourceTree = "<group>"; };
 		88A5A4FF237F8BB8003D8928 /* UIImage++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage++.swift"; sourceTree = "<group>"; };
 		88A9CD3F237F517400260FDE /* Buber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882383F62380DDD100F852F0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				882383F82380DDF900F852F0 /* Poppins-Medium.ttf */,
+				882383F92380DDF900F852F0 /* Poppins-Regular.ttf */,
+				882383FD2380DEA200F852F0 /* Poppins-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		88A5A501237F8BBB003D8928 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +120,7 @@
 			children = (
 				88A5A4FF237F8BB8003D8928 /* UIImage++.swift */,
 				88C69207238030FA006D5B29 /* UIColor++.swift */,
+				882383FF2380DEC300F852F0 /* UIFont++.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 				88C69200237F95F2006D5B29 /* AnnotationViews */,
 				88A5A501237F8BBB003D8928 /* Extensions */,
 				88A9CD4B237F517600260FDE /* Assets.xcassets */,
+				882383F62380DDD100F852F0 /* Fonts */,
 				88A9CD4D237F517600260FDE /* LaunchScreen.storyboard */,
 				88A9CD50237F517600260FDE /* Info.plist */,
 			);
@@ -261,8 +281,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882383FA2380DDFD00F852F0 /* Poppins-Medium.ttf in Resources */,
 				88A9CD4F237F517600260FDE /* LaunchScreen.storyboard in Resources */,
+				882383FE2380DEA700F852F0 /* Poppins-Bold.ttf in Resources */,
 				88A9CD4C237F517600260FDE /* Assets.xcassets in Resources */,
+				882383FB2380DDFF00F852F0 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +359,7 @@
 				88C69202237F9623006D5B29 /* BusAnnotation.swift in Sources */,
 				88EDB20D237F888C0027213F /* UserAnnotationView.swift in Sources */,
 				88DD2D612380747500C9E33F /* RouteInfoView.swift in Sources */,
+				882384002380DEC300F852F0 /* UIFont++.swift in Sources */,
 				88C691FA237F91F4006D5B29 /* BusStopAnnotationView.swift in Sources */,
 				88A9CD47237F517400260FDE /* ViewController.swift in Sources */,
 				88C691FC237F94AD006D5B29 /* BusStopAnnotation.swift in Sources */,

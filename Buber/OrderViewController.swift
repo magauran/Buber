@@ -101,7 +101,14 @@ final class OrderViewController: UIViewController {
         button.setBackgroundImage(UIImage.imageWith(color: .app), for: .normal)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.setTitle("Order bus", for: .normal)
+        let attributedTitle = NSAttributedString(
+            string: "Order bus",
+            attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.appMedium(16)
+            ]
+        )
+        button.setAttributedTitle(attributedTitle, for: .normal)
         button.snp.makeConstraints { make in
             make.height.equalTo(46)
         }

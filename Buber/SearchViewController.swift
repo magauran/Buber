@@ -50,9 +50,16 @@ final class SearchViewController: UIViewController {
         }
 
         self.whereToSearchField.placeholder = "Where to?"
+        self.whereToSearchField.font = UIFont.appMedium(16)
 
-        self.searchButton.setTitle("Search", for: .normal)
-        self.searchButton.setTitleColor(.app, for: .normal)
+        let attributedTitle = NSAttributedString(
+            string: "Search",
+            attributes: [
+                .foregroundColor: UIColor.app,
+                .font: UIFont.appMedium(16)
+            ]
+        )
+        self.searchButton.setAttributedTitle(attributedTitle, for: .normal)
         self.searchButton.addTarget(self, action: #selector(self.didTapSearchButton), for: .touchUpInside)
     }
 

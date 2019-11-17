@@ -31,14 +31,14 @@ final class BusInfoView: UIView {
         self.contentStackView.spacing = 8
 
         let numberLabel = UILabel()
-        numberLabel.font = UIFont.boldSystemFont(ofSize: 21)
+        numberLabel.font = UIFont.appBold(21)
         numberLabel.text = "NO. 550"
         numberLabel.snp.makeConstraints { make in
             make.height.equalTo(25)
         }
 
         let modelLabel = UILabel()
-        modelLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        modelLabel.font = UIFont.appBold(16)
         modelLabel.text = "Elfvik Quarry"
         modelLabel.snp.makeConstraints { make in
             make.height.equalTo(19)
@@ -60,11 +60,11 @@ final class BusInfoView: UIView {
         busView.addArrangedSubview(busImageView)
 
         let costLabel = UILabel()
-        costLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        costLabel.font = UIFont.appMedium(16)
         costLabel.text = "4,8 €"
 
         let durationLabel = UILabel()
-        durationLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        durationLabel.font = UIFont.appRegular(12)
         durationLabel.text = "4 mins"
 
         let busDataView = UIStackView(arrangedSubviews: [costLabel, durationLabel])
@@ -73,14 +73,14 @@ final class BusInfoView: UIView {
         busView.addArrangedSubview(busDataView)
 
         let driverLabel = UILabel()
-        driverLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        driverLabel.font = UIFont.appMedium(16)
         driverLabel.text = "Driver"
         driverLabel.snp.makeConstraints { make in
             make.height.equalTo(19)
         }
 
         let driverNameLabel = UILabel()
-        driverNameLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        driverNameLabel.font = UIFont.appRegular(16)
         driverNameLabel.text = "Jacob M."
         driverNameLabel.snp.makeConstraints { make in
             make.height.equalTo(21)

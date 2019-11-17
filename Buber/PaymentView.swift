@@ -60,13 +60,14 @@ final class PaymentView: UIView {
             make.width.equalTo(30)
         }
         self.bankCardLabel.text = "**** 2384"
+        self.bankCardLabel.font = UIFont.appRegular(16)
     }
 
     private static func makeChangeButton() -> UIButton {
         let button = UIButton()
         let image = UIImage.imageWith(color: .changeButton)
         button.setBackgroundImage(image, for: .normal)
-        let font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        let font = UIFont.appRegular(12)
         let attributedTitle = NSAttributedString(string: "Change", attributes: [.foregroundColor: UIColor.blackText, .font: font])
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.layer.masksToBounds = true

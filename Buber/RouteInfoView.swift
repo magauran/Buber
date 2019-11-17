@@ -188,7 +188,7 @@ final class RouteInfoView: UIView {
         let attributedText = NSAttributedString(
             string: value,
             attributes: [
-                .font: UIFont.systemFont(ofSize: 16),
+                .font: UIFont.appRegular(16),
                 .paragraphStyle: paragraphStyle,
                 .foregroundColor: UIColor.app
             ]
@@ -205,7 +205,7 @@ final class RouteInfoView: UIView {
         let attributedText = NSAttributedString(
             string: value,
             attributes: [
-                .font: UIFont.systemFont(ofSize: 10),
+                .font: UIFont.appRegular(10),
                 .paragraphStyle: paragraphStyle,
                 .foregroundColor: UIColor.blackText
             ]
