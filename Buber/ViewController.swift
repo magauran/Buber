@@ -90,6 +90,8 @@ final class ViewController: UIViewController {
             userAnnotation.coordinate = userCoordinate
             self.mapView.addAnnotation(userAnnotation)
         }
+
+        self.mapView.isPitchEnabled = false
     }
 
     private func setupSearchVC() {
