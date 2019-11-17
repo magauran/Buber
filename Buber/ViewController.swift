@@ -111,6 +111,13 @@ final class ViewController: UIViewController {
     private func setupUserTrackingButton() {
         self.userTraсkingButton.addTarget(self, action: #selector(self.didTapUserTrackingButton), for: .touchUpInside)
         self.userTraсkingButton.setImage(UIImage(named: "userTrackingIcon"), for: .normal)
+
+        self.userTraсkingButton.layer.shadowColor = UIColor.gray.cgColor
+        self.userTraсkingButton.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        self.userTraсkingButton.layer.masksToBounds = false
+        self.userTraсkingButton.layer.shadowRadius = 3
+        self.userTraсkingButton.layer.shadowOpacity = 0.4
+        self.userTraсkingButton.layer.cornerRadius = 22
     }
 
     private func getUserCoordinate() -> CLLocationCoordinate2D? {
