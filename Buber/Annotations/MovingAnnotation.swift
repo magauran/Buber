@@ -29,24 +29,51 @@ class MovingAnnotation: NSObject, MKAnnotation {
 
     func start() {
         func move() {
-            let currentCoordinate = self.route[self.currentIndex % self.count]
+            let currentCoordinate = self.coordinate
             let nextCoordinate = self.route[(self.currentIndex + 1) % self.count]
             let distance = currentCoordinate.distance(to: nextCoordinate)
-            let duration = distance / self.velocity
+            var duration = distance / self.velocity
 
-            UIView.animate(
-                withDuration: duration,
-                delay: 0.0,
-                options: [.curveLinear],
-                animations: {
-                    self.currentIndex += 1
-                    self.coordinate = self.route[self.currentIndex % self.count]
-                },
-                completion: { _ in
-                    move()
-                }
-            )
+            if duration > 0.3 {
+                let newDuration = 0.1
+                let coef = newDuration / duration
+                duration = newDuration
+                let dest = self.interpolate(start: currentCoordinate, end: nextCoordinate, value: coef)
+                print(duration)
+                UIView.animate(
+                    withDuration: duration,
+                    delay: 0.0,
+                    options: [.curveLinear],
+                    animations: {
+                        self.coordinate = dest
+                    },
+                    completion: { _ in
+                        move()
+                    }
+                )
+            } else {
+                print(duration)
+                UIView.animate(
+                    withDuration: duration,
+                    delay: 0.0,
+                    options: [.curveLinear],
+                    animations: {
+                        self.currentIndex += 1
+                        self.coordinate = self.route[self.currentIndex % self.count]
+                    },
+                    completion: { _ in
+                        move()
+                    }
+                )
+            }
         }
         move()
+    }
+
+    private func interpolate(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D, value: Double) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(
+            latitude: start.latitude + (end.latitude - start.latitude) * value,
+            longitude: start.longitude + (end.longitude - start.longitude) * value
+        )
     }
 }
