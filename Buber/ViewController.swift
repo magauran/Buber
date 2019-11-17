@@ -201,6 +201,18 @@ final class ViewController: UIViewController {
         }
     }
 
+    private func removeAllBuses() {
+        self.mapView.annotations.filter { $0 is BusAnnotation }.forEach { annotation in
+            self.mapView.removeAnnotation(annotation)
+        }
+    }
+
+    private func removeAllBusStops() {
+        self.mapView.annotations.filter { $0 is BusStopAnnotation }.forEach { annotation in
+            self.mapView.removeAnnotation(annotation)
+        }
+    }
+
     private func showBusStop() {
         let busStopCoordinate = self.getBusStopCoordinate()
         let annotation = BusStopAnnotation()
@@ -350,6 +362,7 @@ extension ViewController: SearchViewControllerDelegate {
 extension ViewController: OrderViewControllerDelegate {
     func orderViewControllerDidTapOrderButton(_ vc: OrderViewController) {
         let confirmVC = ConfirmViewController()
+        confirmVC.delegate = self
 
         self.coveringWindow = UIWindow(frame: self.view.bounds)
 
@@ -359,5 +372,15 @@ extension ViewController: OrderViewControllerDelegate {
             coveringWindow.rootViewController = confirmVC
             coveringWindow.makeKeyAndVisible()
         }
+    }
+}
+
+extension ViewController: ConfirmViewControllerDelegate {
+    func confirmViewControllerDidClose(_ vc: ConfirmViewController) {
+        self.fpc.move(to: .tip, animated: true)
+        self.bottomContainerController.state = .search
+        self.removeAllBuses()
+        self.removeAllRoutes()
+        self.removeAllBusStops()
     }
 }

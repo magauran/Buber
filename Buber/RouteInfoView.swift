@@ -199,8 +199,8 @@ final class RouteInfoView: UIView {
 
     private static func makeDescriptionAttributedText(value: String) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = 10
-        paragraphStyle.maximumLineHeight = 10
+        paragraphStyle.minimumLineHeight = 11
+        paragraphStyle.maximumLineHeight = 11
 
         let attributedText = NSAttributedString(
             string: value,

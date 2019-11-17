@@ -9,7 +9,13 @@
 import UIKit
 import SnapKit
 
+protocol ConfirmViewControllerDelegate: AnyObject {
+    func confirmViewControllerDidClose(_ vc: ConfirmViewController)
+}
+
 final class ConfirmViewController: UIViewController {
+    weak var delegate: ConfirmViewControllerDelegate?
+
     private let contentView = UIView()
 
     override func viewDidLoad() {
@@ -98,5 +104,6 @@ final class ConfirmViewController: UIViewController {
         self.view.window?.isHidden = true
         guard let delegate = UIApplication.shared.delegate as? AppDelegate, let window = delegate.window else { return }
         window.makeKeyAndVisible()
+        self.delegate?.confirmViewControllerDidClose(self)
     }
 }
