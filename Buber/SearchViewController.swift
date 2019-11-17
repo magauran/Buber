@@ -74,6 +74,7 @@ final class SearchViewController: UIViewController {
 
         self.whereToSearchField.placeholder = "Where to?"
         self.whereToSearchField.font = UIFont.appMedium(16)
+        self.whereToSearchField.spellCheckingType = .no
 
         let attributedTitle = NSAttributedString(
             string: "Search",
