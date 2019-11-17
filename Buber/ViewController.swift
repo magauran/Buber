@@ -103,7 +103,7 @@ final class ViewController: UIViewController {
         self.fpc.surfaceView.cornerRadius = 16
         self.fpc.surfaceView.shadowHidden = false
         self.fpc.surfaceView.grabberHandle.barColor = .app
-        self.fpc.surfaceView.grabberTopPadding = 20
+        self.fpc.surfaceView.grabberTopPadding = 14
     }
 
     private func setupUserTrackingButton() {
