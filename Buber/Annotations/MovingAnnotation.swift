@@ -15,7 +15,7 @@ class MovingAnnotation: NSObject, MKAnnotation {
     dynamic var subtitle: String?
     dynamic var image: UIImage?
     private var route: [CLLocationCoordinate2D]
-    private let velocity = 100.0
+    private let velocity = 3.0
 
     init(route: [CLLocationCoordinate2D]) {
         self.coordinate = route[0]

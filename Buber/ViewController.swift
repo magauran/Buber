@@ -127,7 +127,7 @@ final class ViewController: UIViewController {
     }
 
     private func getBusStopCoordinate() -> CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: 60.183590000000002, longitude: 24.827850000000002)
+        CLLocationCoordinate2D(latitude: 60.184190000000001, longitude: 24.815770000000001)
     }
 
     private func getBusRoute() -> [CLLocationCoordinate2D] {
@@ -236,12 +236,12 @@ extension ViewController: MKMapViewDelegate {
         case is BusStopAnnotation:
             let identifier = "BusStop"
             var annotationView: BusStopAnnotationView?
-//            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusStopAnnotationView {
-//                dequeuedView.annotation = annotation
-//                annotationView = dequeuedView
-//            } else {
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? BusStopAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
                 annotationView = BusStopAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            }
+            }
             return annotationView
         case is UserAnnotation:
             return UserAnnotationView(annotation: annotation, reuseIdentifier: "User")
